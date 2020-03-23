@@ -70,10 +70,43 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+#### Player
+| Property      | Type     | Description |
+|---------------|----------|-------------|
+|tag|String|A unique tag, provided from brawlstars for each player of the game
+| ourRank | Number | [Optional] if API doesn't provide Ranking this will be a ranking with respect to our users
+| brawlstarsRank | Number | Global Ranking of Player |
+
+#### Match
+| Property      | Type     | Description |
+|---------------|----------|-------------|
+| trophiesEarned | Number | The number of trophies gained or lost during a match
+| battleTime | Number | The time the battle happened
+| event | Event | The details about the match
+
+#### Event
+| Property      | Type     | Description |
+|---------------|----------|-------------|
+| map | String | the map that the was played
+| id | String | the type of Game that was played |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### List of network requests by screen
+Our application does not use any requests other than API requests from Brawlstars API
+
+#### API Endpoints
+Base URL - 
+
+HTTP Verb | Endpoint | Description
+----------|----------|------------
+GET | /players/{playerTag} | Get information about a single player by player tag. Player tags can be found either in game or by from clan member list.
+GET | /players/{playerTag}/battleLog | Get list of recent battle results for a player.
+GET | /rankings/{countryCode}/players | Get player rankings for a country or global rankings.
+GET | /rankings/{countryCode}/brawlers/{brawlerId} | Get brawler rankings for a country or global rankings. Brawler identifiers can be found by using the /v1/brawlers API endpoint. 
+GET |/brawlers | Get list of available brawlers.
+GET |/brawlers/{brawlerId} | Get information about a brawler.
+
+
