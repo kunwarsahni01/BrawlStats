@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "@prettier/plugin-swift": "prettier/plugin-swift",
-    "prettier": "2.0.2"
-  }
-}
