@@ -1,5 +1,8 @@
-// Import the library
-const server = require("server");
+const express = require("express");
+const app = express();
 
-// Launch the server to always answer "Hello world"
-server(ctx => "Hello world!");
+app.get("/hello", function(req, res) {
+  res.send("Hello World");
+});
+
+app.listen(3000);
