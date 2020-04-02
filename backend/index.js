@@ -7,6 +7,8 @@ const BASE = "https://api.brawlstars.com/v1/";
 const API_TOKEN =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjdjN2JjNTcwLTcxM2UtNDE5NC05YmQ5LWQ3MzA3ZTVkNTdmNiIsImlhdCI6MTU4NTc1NzU1OCwic3ViIjoiZGV2ZWxvcGVyL2IxNjczNTA3LTFiYjYtMGM4NS1kNjU1LTlhZmY2N2I0OWZhZCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiNTAuOTAuMjEzLjczIl0sInR5cGUiOiJjbGllbnQifV19.Fct4ygWI9EC_qvxp_haEKHF_QVgE2nBHdsyCXzpsuqDRX7ijd5F-tZulP892F99dykuK78auL8JCKoXi1UQN7w";
 
+const PORT = process.env.PORT || 3000;
+
 app.get("/hello", function(req, res) {
   res.send("Hello World");
 });
@@ -180,4 +182,6 @@ app.get("/brawlers/:brawlerId", function(req, res) {
   );
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}...`);
+});
