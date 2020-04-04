@@ -15,6 +15,8 @@
 		1000C3D12432B07D0003EF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */; };
 		1000C3DC2432B07D0003EF64 /* BrawlStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3DB2432B07D0003EF64 /* BrawlStatsTests.swift */; };
 		1000C3E72432B07D0003EF64 /* BrawlStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */; };
+		97976F652438D53000A36A4B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F642438D53000A36A4B /* Player.swift */; };
+		97976F672438D53D00A36A4B /* Brawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F662438D53D00A36A4B /* Brawler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		1000C3E22432B07D0003EF64 /* BrawlStatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrawlStatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrawlStatsUITests.swift; sourceTree = "<group>"; };
 		1000C3E82432B07D0003EF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97976F642438D53000A36A4B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		97976F662438D53D00A36A4B /* Brawler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brawler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				1000C3C42432B07D0003EF64 /* AppDelegate.swift */,
 				1000C3C62432B07D0003EF64 /* SceneDelegate.swift */,
 				1000C3C82432B07D0003EF64 /* ViewController.swift */,
+				97976F642438D53000A36A4B /* Player.swift */,
+				97976F662438D53D00A36A4B /* Brawler.swift */,
 				1000C3CA2432B07D0003EF64 /* Main.storyboard */,
 				1000C3CD2432B07D0003EF64 /* Assets.xcassets */,
 				1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97976F652438D53000A36A4B /* Player.swift in Sources */,
 				1000C3C92432B07D0003EF64 /* ViewController.swift in Sources */,
 				1000C3C52432B07D0003EF64 /* AppDelegate.swift in Sources */,
+				97976F672438D53D00A36A4B /* Brawler.swift in Sources */,
 				1000C3C72432B07D0003EF64 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
