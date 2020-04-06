@@ -69,6 +69,9 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 <img src="https://imgur.com/8QAaVzP.png" width=600>
 
 
+## Development Screenshots
+<img width="230" alt="Screen Shot 2020-04-01 at 6 19 47 PM" src="https://user-images.githubusercontent.com/22580992/78513401-563fee80-7779-11ea-934c-959eb4937042.png">
+
 ## Schema 
 
 ### Models
