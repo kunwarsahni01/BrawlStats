@@ -30,7 +30,6 @@ class EnterPlayerTagViewController: UIViewController {
                 print(error.localizedDescription)
             } else if let data = data {
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
                 self.printingInfo()
@@ -42,9 +41,13 @@ class EnterPlayerTagViewController: UIViewController {
     }
     
     @IBAction func enterTapped(_ sender: Any) {
-        if let text = userTagField.text, !text.isEmpty
+        if let text = userTagField.text?.uppercased(), !text.isEmpty
         {
-            getData(usertag: text)
+            var val = text.uppercased()
+            if (text.first == "#") {
+                val = String(text.dropFirst())
+            }
+            getData(usertag: String(val.filter { !" \n\t\r".contains($0) }))
         } else {
             print("Field is Empty!!")
         }
@@ -53,30 +56,30 @@ class EnterPlayerTagViewController: UIViewController {
     // demo function on how to get the data.
     // TODO: turn this in to a codeable
     func initStruct() {
-        player.tag = personalStat["tag"] as! String
-        player.name = personalStat["name"] as! String
-        player.nameColor = personalStat["nameColor"] as! String
-        player.trophies = personalStat["trophies"] as! Int
-        player.highestTrophies = personalStat["highestTrophies"] as! Int
-        player.expLevel = personalStat["expLevel"] as! Int
-        player.expPoints = personalStat["expPoints"] as! Int
-        player.isQualifiedFromChampionshipChallenge = personalStat["isQualifiedFromChampionshipChallenge"] as! Bool
-        player.ThreeVSThreeVictories = personalStat["3vs3Victories"] as! Int
-        player.soloVictories = personalStat["soloVictories"] as! Int
-        player.duoVictories = personalStat["duoVictories"] as! Int
-        player.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as! Int
-        player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as! Int
-        player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as! Int
+        player.tag = personalStat["tag"] as? String ?? "#000000000"
+        player.name = personalStat["name"] as? String ?? "Name Not Found"
+        player.nameColor = personalStat["nameColor"] as? String ?? "#FFFFFFFF"
+        player.trophies = personalStat["trophies"] as? Int ?? 0
+        player.highestTrophies = personalStat["highestTrophies"] as? Int ?? 0
+        player.expLevel = personalStat["expLevel"] as? Int ?? 0
+        player.expPoints = personalStat["expPoints"] as? Int ?? 0
+        player.isQualifiedFromChampionshipChallenge = personalStat["isQualifiedFromChampionshipChallenge"] as? Bool ?? false
+        player.ThreeVSThreeVictories = personalStat["3vs3Victories"] as? Int ?? 0
+        player.soloVictories = personalStat["soloVictories"] as? Int ?? 0
+        player.duoVictories = personalStat["duoVictories"] as? Int ?? 0
+        player.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as? Int ?? 0
+        player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
+        player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
         player.club = personalStat["club"] as! [String: String]
         brawlers = personalStat["brawlers"] as! [[String: Any]]
         for brawler in brawlers {
             var insert = Brawler()
-            insert.id = brawler["id"] as! Int
-            insert.name = brawler["name"] as! String
-            insert.power = brawler["power"] as! Int
-            insert.rank = brawler["rank"] as! Int
-            insert.trophies = brawler["trophies"] as! Int
-            insert.highestTrophies = brawler["highestTrophies"] as! Int
+            insert.id = brawler["id"] as? Int ?? 0
+            insert.name = brawler["name"] as? String ?? ""
+            insert.power = brawler["power"] as? Int ?? 0
+            insert.rank = brawler["rank"] as? Int ?? 0
+            insert.trophies = brawler["trophies"] as? Int ?? 0
+            insert.highestTrophies = brawler["highestTrophies"] as? Int ?? 0
             //insert.starPowers = brawler["starPowers"] as! [String: String]
             player.brawlers.append(insert)
         }
@@ -84,5 +87,9 @@ class EnterPlayerTagViewController: UIViewController {
     
     func printingInfo() {
         print(player)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
     }
 }
