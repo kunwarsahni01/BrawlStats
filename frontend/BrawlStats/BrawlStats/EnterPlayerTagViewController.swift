@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EnterPlayerTagViewController: UIViewController {
     @IBOutlet var userTagField: UITextField!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     func getData(usertag: String) {
         // getting json from URL
-        let url = URL(string: "http://localhost:3000/players/\(usertag)")!
+        let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { data, _, error in
