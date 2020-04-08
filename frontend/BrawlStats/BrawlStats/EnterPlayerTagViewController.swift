@@ -24,6 +24,7 @@ class EnterPlayerTagViewController: UIViewController {
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
         let task = session.dataTask(with: request) { data, _, error in
             // This will run when the network request returns
             if let error = error {
@@ -32,24 +33,38 @@ class EnterPlayerTagViewController: UIViewController {
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
-                self.printingInfo()
+//                self.printingInfo()
+                self.segToPersonalStat()
             }
         }
         task.resume()
-        
-        // Do not try to get personal stats here, request is in a separate thread, and the array will be empty
     }
     
     @IBAction func enterTapped(_ sender: Any) {
+        
         if let text = userTagField.text?.uppercased(), !text.isEmpty
         {
-            var val = text.uppercased()
-            if (text.first == "#") {
-                val = String(text.dropFirst())
-            }
-            getData(usertag: String(val.filter { !" \n\t\r".contains($0) }))
+            let characterSet = Set(String("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890"))
+            
+            getData(usertag: String(text.filter { characterSet.contains($0) }))
         } else {
-            print("Field is Empty!!")
+            let alert = UIAlertController(title: "Error", message: "Field is empty!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
+    }
+    
+    func segToPersonalStat() {
+        print(player.tag)
+        if (player.tag == "#000000000") {
+
+            let alert = UIAlertController(title: "Error", message: "Invalid Tag!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else {
+            performSegue(withIdentifier: "EnterTagToPersonalStat", sender: self)
         }
     }
     
@@ -70,8 +85,8 @@ class EnterPlayerTagViewController: UIViewController {
         player.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as? Int ?? 0
         player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
         player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
-        player.club = personalStat["club"] as! [String: String]
-        brawlers = personalStat["brawlers"] as! [[String: Any]]
+        player.club = personalStat["club"] as? [String: String] ?? [String:String]()
+        brawlers = personalStat["brawlers"] as? [[String: Any]] ?? [[String: Any]]()
         for brawler in brawlers {
             var insert = Brawler()
             insert.id = brawler["id"] as? Int ?? 0
@@ -87,9 +102,5 @@ class EnterPlayerTagViewController: UIViewController {
     
     func printingInfo() {
         print(player)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
     }
 }
