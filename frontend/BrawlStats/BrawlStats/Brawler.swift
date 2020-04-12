@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Brawler {
+struct Brawler:Codable {
     var id: Int = 0
     var name: String = ""
     var power: Int = 0
     var rank: Int = 0
     var trophies: Int = 0
     var highestTrophies: Int = 0
-    var starPowers: [String : String] = [:]
+    var starPowers: [String] = []
 }

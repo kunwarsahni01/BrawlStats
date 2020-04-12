@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Player {
-    
+struct Player:Codable {
     var tag: String = ""
     var name: String = ""
     var nameColor: String = ""
