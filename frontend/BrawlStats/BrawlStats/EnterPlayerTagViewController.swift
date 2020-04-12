@@ -32,9 +32,12 @@ class EnterPlayerTagViewController: UIViewController {
         print(searches)
         
         for (index, search) in searches.enumerated() {
+            let buttonWidth = 150
+            let buttonHeight = 50
+            
             // for each search, we want to create a new button on the view.
-            let button = UIButton(frame: CGRect(x: 100, y: 100 + 100*index, width: 100, height: 50))
-            button.backgroundColor = .green
+            let button = UIButton(frame: CGRect(x: (Int(self.view.frame.size.width) - buttonWidth) / 2, y: (Int(self.view.frame.size.height) / 2) + 55*index, width: buttonWidth, height: buttonHeight))
+            button.backgroundColor = .blue
             button.setTitle(search, for: .normal)
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
             self.view.addSubview(button)
