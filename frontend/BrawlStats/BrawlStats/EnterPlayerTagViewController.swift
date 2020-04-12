@@ -7,16 +7,68 @@
 //
 
 import UIKit
+import Foundation
 
 class EnterPlayerTagViewController: UIViewController {
     @IBOutlet var userTagField: UITextField!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var player = Player()
+    let recentSearchKey = "recentSearchKey"
+    let numRecentSearches = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let userDefaults = UserDefaults.standard
+        
+        // If searches hasn't been setup yet, it will be initialized as an empty array
+        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
+        
+        print(searches)
+        
+        for (index, search) in searches.enumerated() {
+            // for each search, we want to create a new button on the view.
+            let button = UIButton(frame: CGRect(x: 100, y: 100 + 100*index, width: 100, height: 50))
+            button.backgroundColor = .green
+            button.setTitle(search, for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            self.view.addSubview(button)
+        }
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        print("Button tapped")
+        print(sender.titleLabel!.text!)
+        
+        self.getData(usertag: sender.titleLabel!.text!)
+    }
+    
+    
+    func addRecentSearch(usertag: String) {
+        let userDefaults = UserDefaults.standard
+        
+        // If searches hasn't been setup yet, it will be initialized as an empty array
+        var searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
+        
+        // to make sure we don't have duplicates, only insert if they dont already exist
+        if (!searches.contains(usertag)) {
+            // insert the new usertag at the front
+            searches.insert(usertag, at: 0);
+        }
+        
+        // if the length is now longer than numRecentSearches, we will remove the final element
+        if (searches.count > numRecentSearches) {
+            searches.removeLast()
+        }
+        
+        // Now we put the data back in UserDefaults.
+        
+        userDefaults.set(searches, forKey: recentSearchKey)
     }
     
     func getData(usertag: String) {
@@ -30,6 +82,7 @@ class EnterPlayerTagViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
+                self.addRecentSearch(usertag: usertag)
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
