@@ -10,7 +10,7 @@
         <!--Item 2-->
         <scene sceneID="Lzf-hL-IYW">
             <objects>
-                <viewController id="hCG-Uf-yv9" sceneMemberID="viewController">
+                <viewController id="hCG-Uf-yv9" customClass="RankingsViewController" customModule="BrawlStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpl-2R-Hsd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -16,6 +16,7 @@
 		1000C3DC2432B07D0003EF64 /* BrawlStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3DB2432B07D0003EF64 /* BrawlStatsTests.swift */; };
 		1000C3E72432B07D0003EF64 /* BrawlStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */; };
 		10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10684447243BEE98004B721A /* PersonalStatViewController.swift */; };
+		1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */; };
 		97976F652438D53000A36A4B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F642438D53000A36A4B /* Player.swift */; };
 		97976F672438D53D00A36A4B /* Brawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F662438D53D00A36A4B /* Brawler.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrawlStatsUITests.swift; sourceTree = "<group>"; };
 		1000C3E82432B07D0003EF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10684447243BEE98004B721A /* PersonalStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStatViewController.swift; sourceTree = "<group>"; };
+		1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
 		97976F642438D53000A36A4B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		97976F662438D53D00A36A4B /* Brawler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brawler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				97976F642438D53000A36A4B /* Player.swift */,
 				97976F662438D53D00A36A4B /* Brawler.swift */,
 				1000C3CA2432B07D0003EF64 /* Main.storyboard */,
+				1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */,
 				1000C3CD2432B07D0003EF64 /* Assets.xcassets */,
 				1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */,
 				1000C3D22432B07D0003EF64 /* Info.plist */,
@@ -273,6 +276,7 @@
 				1000C3C92432B07D0003EF64 /* EnterPlayerTagViewController.swift in Sources */,
 				1000C3C52432B07D0003EF64 /* AppDelegate.swift in Sources */,
 				97976F672438D53D00A36A4B /* Brawler.swift in Sources */,
+				1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */,
 				1000C3C72432B07D0003EF64 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
