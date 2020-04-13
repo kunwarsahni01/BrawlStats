@@ -96,6 +96,9 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 <img width="230" alt="Screen Shot 2020-04-01 at 6 19 47 PM" src="https://user-images.githubusercontent.com/22580992/78513401-563fee80-7779-11ea-934c-959eb4937042.png">
 <img width="230" alt="Search Page with previous search results" src="https://i.imgur.com/ge9lZpj.png">
 
+### Personal Stat Page
+<img width="230" alt="Screen Shot 2020-04-01 at 6 19 47 PM" src="https://imgur.com/l5SA2bM.png">
+
 The image on the right is the final update for functionality on the Search Page. Styling will be coming in Sprint 3.
 
 ## Schema
