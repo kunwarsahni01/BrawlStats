@@ -25,3 +25,12 @@ struct Player:Codable {
     var club: [String : String] = [:]
     var brawlers: [Brawler] = []
 }
+
+struct RankPlayer:Codable {
+    var tag: String = ""
+    var rank: Int = 0
+    var trophies: Int = 0
+    var name: String = ""
+    var clubName: String = ""
+    var nameColor: String = "0xffffffff"
+}
