@@ -89,7 +89,7 @@ class EnterPlayerTagViewController: UIViewController {
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
-//                self.printingInfo()
+                //                self.printingInfo()
                 self.segToPersonalStat()
             }
         }
@@ -112,9 +112,9 @@ class EnterPlayerTagViewController: UIViewController {
     }
     
     func segToPersonalStat() {
-        print(player.tag)
+        print(player.club)
         if (player.tag == "#000000000") {
-
+            
             let alert = UIAlertController(title: "Error", message: "Invalid Tag!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
@@ -158,5 +158,17 @@ class EnterPlayerTagViewController: UIViewController {
     
     func printingInfo() {
         print(player)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "EnterTagToPersonalStat" {
+            if let personalStatPage = segue.destination as? PersonalStatViewController {
+                personalStatPage.player = player
+            }
+        }
+        
     }
 }
