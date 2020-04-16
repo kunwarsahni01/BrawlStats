@@ -63,12 +63,4 @@ class PersonalStatViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }
