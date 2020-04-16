@@ -29,7 +29,7 @@ class EnterPlayerTagViewController: UIViewController {
         // If searches hasn't been setup yet, it will be initialized as an empty array
         let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
         
-        print(searches)
+        // print(searches)
         
         for (index, search) in searches.enumerated() {
             let buttonWidth = 150
@@ -45,8 +45,8 @@ class EnterPlayerTagViewController: UIViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        print("Button tapped")
-        print(sender.titleLabel!.text!)
+        //print("Button tapped")
+        //print(sender.titleLabel!.text!)
         
         self.getData(usertag: sender.titleLabel!.text!)
     }
@@ -112,7 +112,7 @@ class EnterPlayerTagViewController: UIViewController {
     }
     
     func segToPersonalStat() {
-        print(player.club)
+        // print(player.club)
         if (player.tag == "#000000000") {
             
             let alert = UIAlertController(title: "Error", message: "Invalid Tag!", preferredStyle: .alert)

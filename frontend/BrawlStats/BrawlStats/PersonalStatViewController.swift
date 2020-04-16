@@ -17,6 +17,30 @@ class PersonalStatViewController: UIViewController {
     @IBOutlet weak var XpTextField: UILabel!
     
     
+    func getBattleLog() {
+        
+    }
+    
+
+    // This function looks at the current player and returns the Brawler object of the highest trophy brawler the player has
+    func highestTropheyBrawler() -> (Brawler) {
+        
+        let brawlers = player.brawlers
+        // print(brawlers)
+        
+        var highestBrawler = brawlers[0];
+        
+        for brawler in brawlers {
+            // print(brawler)
+            if (brawler.trophies > highestBrawler.trophies) {
+                highestBrawler = brawler;
+            }
+        }
+        
+        print(highestBrawler);
+        
+        return highestBrawler
+    }
 
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
@@ -24,6 +48,9 @@ class PersonalStatViewController: UIViewController {
         ClubTextField.text = player.club["name"] ?? "No Club"
         TrophyTextField.text = String(player.trophies)
         XpTextField.text = String(player.expPoints)
+        // highestTropheyBrawler()
+        
+        // print(player)
     }
     
 
