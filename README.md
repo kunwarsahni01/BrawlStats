@@ -1,6 +1,4 @@
-# Group Project
-
-# BrawlStat
+![Logo-min](https://user-images.githubusercontent.com/22580992/79498091-c3177c00-7ff6-11ea-9396-c70632cb44bb.png)
 
 ## Table of Contents
 
