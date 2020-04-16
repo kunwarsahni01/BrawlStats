@@ -17,6 +17,7 @@
 		1000C3E72432B07D0003EF64 /* BrawlStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */; };
 		10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10684447243BEE98004B721A /* PersonalStatViewController.swift */; };
 		1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */; };
+		97261A3F2445403E0077A2E3 /* Nougat-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */; };
 		97976F652438D53000A36A4B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F642438D53000A36A4B /* Player.swift */; };
 		97976F672438D53D00A36A4B /* Brawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F662438D53D00A36A4B /* Brawler.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		1000C3E82432B07D0003EF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10684447243BEE98004B721A /* PersonalStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStatViewController.swift; sourceTree = "<group>"; };
 		1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
+		97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nougat-ExtraBlack.ttf"; sourceTree = "<group>"; };
 		97976F642438D53000A36A4B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		97976F662438D53D00A36A4B /* Brawler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brawler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 				1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */,
 				1000C3D22432B07D0003EF64 /* Info.plist */,
 				10684447243BEE98004B721A /* PersonalStatViewController.swift */,
+				97261A40244540490077A2E3 /* fonts */,
 			);
 			path = BrawlStats;
 			sourceTree = "<group>";
@@ -138,6 +141,14 @@
 				1000C3E82432B07D0003EF64 /* Info.plist */,
 			);
 			path = BrawlStatsUITests;
+			sourceTree = "<group>";
+		};
+		97261A40244540490077A2E3 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1000C3D12432B07D0003EF64 /* LaunchScreen.storyboard in Resources */,
+				97261A3F2445403E0077A2E3 /* Nougat-ExtraBlack.ttf in Resources */,
 				1000C3CE2432B07D0003EF64 /* Assets.xcassets in Resources */,
 				1000C3CC2432B07D0003EF64 /* Main.storyboard in Resources */,
 			);

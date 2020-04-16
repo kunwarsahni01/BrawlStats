@@ -15,8 +15,24 @@ class PersonalStatViewController: UIViewController {
     @IBOutlet weak var ClubTextField: UILabel!
     @IBOutlet weak var TrophyTextField: UILabel!
     @IBOutlet weak var XpTextField: UILabel!
+    @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var SolosTextField: UILabel!
+    @IBOutlet weak var DuosTextField: UILabel!
+    @IBOutlet weak var ThreeVThreeTextField: UILabel!
+    @IBOutlet weak var RoboTimeTextField: UILabel!
+    @IBOutlet weak var CharacterImageView: UIImageView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
+
     func getBattleLog() {
         
     }
@@ -42,24 +58,41 @@ class PersonalStatViewController: UIViewController {
         return highestBrawler
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+
+    }
+
     override func viewDidLoad() {
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
+        roundedView.layer.cornerRadius = 38
         NameTextField.text = player.name
         ClubTextField.text = player.club["name"] ?? "No Club"
+
         TrophyTextField.text = String(player.trophies)
         XpTextField.text = String(player.expPoints)
         // highestTropheyBrawler()
-        
         // print(player)
+        TrophyTextField.text = "Trophies: \(String(player.trophies))"
+        XpTextField.text = "XP: \n\(String(player.expPoints))"
+        SolosTextField.text = "Solo Victories: \(String(player.soloVictories))"
+        DuosTextField.text = "Duo Victories: \(String(player.duoVictories))"
+        ThreeVThreeTextField.text = "3v3 Victories: \(String(player.ThreeVSThreeVictories))"
+        RoboTimeTextField.text = "Robo Time: \(String(player.bestRoboRumbleTime))"
+        CharacterImageView.image = UIImage(named: "colt")
+        // Change Character Image View through line above.
+        /*
+            Current Character Models:
+            colt
+            crow
+            spike
+            poco
+         */
     }
     
 
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    
-
 }
