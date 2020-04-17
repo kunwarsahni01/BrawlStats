@@ -146,11 +146,13 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
         // let userDefaults = UserDefaults.standard
         let searches: [Player] = getRecentSearchesPlayer()
         
-        print(searches[indexPath[1]])
+        let player = searches[indexPath[1]]
+
+        var usertag = player.tag
+        // Since usertags start with a #, we remove the first character
+        usertag.remove(at: usertag.startIndex)
         
-        self.player = searches[indexPath[1]]
-        
-        segToPersonalStat()
+        getData(usertag: usertag)
     }
     
     func getData(usertag: String) {
