@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -212,38 +212,44 @@ stack-up?</string>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M01-2V-rr6">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M01-2V-rr6">
                                 <rect key="frame" x="0.0" y="468" width="375" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CdA-FW-8Z5">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="300" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentCollectionViewCell" id="3cO-YG-lLT" customClass="RecentCollectionViewCell" customModule="BrawlStats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20.666666666666668" width="296" height="213"/>
+                                        <rect key="frame" x="0.0" y="63" width="300" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mHI-h5-R95">
-                                            <rect key="frame" x="0.0" y="0.0" width="296" height="213"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="crow" translatesAutoresizingMaskIntoConstraints="NO" id="eST-so-1dz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="213"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crow" translatesAutoresizingMaskIntoConstraints="NO" id="eST-so-1dz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="128"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZq-Ox-fQZ">
-                                                    <rect key="frame" x="32" y="166" width="232" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZq-Ox-fQZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eST-so-1dz" firstAttribute="leading" secondItem="mHI-h5-R95" secondAttribute="leading" id="8qx-qe-3Yz"/>
+                                                <constraint firstItem="eST-so-1dz" firstAttribute="top" secondItem="mHI-h5-R95" secondAttribute="top" id="ANE-3K-oGH"/>
+                                                <constraint firstAttribute="bottom" secondItem="eST-so-1dz" secondAttribute="bottom" id="CnN-ob-6xA"/>
+                                                <constraint firstItem="QZq-Ox-fQZ" firstAttribute="leading" secondItem="mHI-h5-R95" secondAttribute="leading" id="aUr-gw-nNY"/>
+                                                <constraint firstItem="QZq-Ox-fQZ" firstAttribute="top" secondItem="mHI-h5-R95" secondAttribute="top" id="cIg-GJ-gqc"/>
+                                                <constraint firstAttribute="trailing" secondItem="eST-so-1dz" secondAttribute="trailing" id="ppm-hj-ooe"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="296" height="213"/>
+                                        <size key="customSize" width="300" height="128"/>
                                         <connections>
                                             <outlet property="imageView" destination="eST-so-1dz" id="i4i-0i-HDU"/>
                                             <outlet property="userLabel" destination="QZq-Ox-fQZ" id="eZ7-ts-tyh"/>

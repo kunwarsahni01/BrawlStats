@@ -40,25 +40,44 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let userDefaults = UserDefaults.standard
         
-        // If searches hasn't been setup yet, it will be initialized as an empty array
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
+        // print("RECENT SEARCHES: \(getRecentSearchesPlayer())")
         
-        // print(searches)
-        /*
-        for (index, search) in searches.enumerated() {
-            let buttonWidth = 150
-            let buttonHeight = 50
-            
-            // for each search, we want to create a new button on the view.
-            let button = UIButton(frame: CGRect(x: (Int(self.view.frame.size.width) - buttonWidth) / 2, y: (Int(self.view.frame.size.height) / 2) + 55*index, width: buttonWidth, height: buttonHeight))
-            button.backgroundColor = .blue
-            button.setTitle(search, for: .normal)
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            self.view.addSubview(button)
+        // TODO: reload the recent searches data every time the view appears
+    }
+    
+    func getRecentSearches() -> [Data] {
+        let defaults = UserDefaults.standard
+        let searchesData = defaults.object(forKey: recentSearchKey) as? [Data] ?? []
+        //print("searchesData: \(searchesData)")
+        return searchesData
+    }
+    
+    func getRecentSearchesPlayer() -> [Player] {
+        let searchesData: [Data] = getRecentSearches()
+        
+        var searches = [Player]()
+        for searchData in searchesData {
+            searches.insert(convertDataToPlayer(playerData: searchData), at: 0)
         }
-        */
+        return searches
+    }
+    
+    func convertPlayerToData(tempPlayer: Player) -> Data {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(tempPlayer) {
+            return encoded
+        }
+        return Data()
+    }
+    
+    func convertDataToPlayer(playerData: Data) -> Player {
+        let decoder = JSONDecoder()
+        if let decodedPlayer = try? decoder.decode(Player.self, from: playerData) {
+            // print(decodedPlayer)
+            return decodedPlayer
+        }
+        return Player()
     }
     
     
@@ -70,16 +89,22 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
     }
     
     
-    func addRecentSearch(usertag: String) {
-        let userDefaults = UserDefaults.standard
+    func addRecentSearch(playerInfo: Player) {
+        // let userDefaults = UserDefaults.standard
         
         // If searches hasn't been setup yet, it will be initialized as an empty array
-        var searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
+        let searchesData: [Data] = getRecentSearches()
+        
+        
+        var searches = [Player]()
+        for searchData in searchesData {
+            searches.insert(convertDataToPlayer(playerData: searchData), at: 0)
+        }
         
         // to make sure we don't have duplicates, only insert if they dont already exist
-        if (!searches.contains(usertag)) {
+        if (!searches.contains(playerInfo)) {
             // insert the new usertag at the front
-            searches.insert(usertag, at: 0);
+            searches.insert(playerInfo, at: 0);
         }
         
         // if the length is now longer than numRecentSearches, we will remove the final element
@@ -87,24 +112,45 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
             searches.removeLast()
         }
         
+        //print("Searches: \(searches)")
+        var temp = [Data]()
+        for searchPlayer in searches {
+            temp.insert(convertPlayerToData(tempPlayer: searchPlayer), at: 0)
+        }
+        //print("Searches as Data: \(temp)")
+        let defaults = UserDefaults.standard
+        defaults.set(temp, forKey: recentSearchKey)
+        //print("Successfully encoded data")
+        
         // Now we put the data back in UserDefaults.
         
-        userDefaults.set(searches, forKey: recentSearchKey)
+        //userDefaults.set(searches, forKey: recentSearchKey)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let userDefaults = UserDefaults.standard
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
+        // let userDefaults = UserDefaults.standard
+        let searches: [Player] = getRecentSearchesPlayer()
         return searches.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCollectionViewCell", for: indexPath) as! RecentCollectionViewCell
-        let userDefaults = UserDefaults.standard
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
-        cell.userLabel.text = searches[indexPath.row]
+        // let userDefaults = UserDefaults.standard
+        let searches: [Player] = getRecentSearchesPlayer()
+        cell.userLabel.text = searches[indexPath.row].name
         cell.imageView.image = UIImage(named: "colt")
-         return cell
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        // let userDefaults = UserDefaults.standard
+        let searches: [Player] = getRecentSearchesPlayer()
+        
+        print(searches[indexPath[1]])
+        
+        self.player = searches[indexPath[1]]
+        
+        segToPersonalStat()
     }
     
     func getData(usertag: String) {
@@ -118,11 +164,12 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                self.addRecentSearch(usertag: usertag)
+                
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
                 //                self.printingInfo()
+                self.addRecentSearch(playerInfo: self.player)
                 self.segToPersonalStat()
             }
         }

@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Player:Codable {
+struct Player:Codable, Equatable {
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.tag == rhs.tag
+    }
+    
     var tag: String = ""
     var name: String = ""
     var nameColor: String = ""
