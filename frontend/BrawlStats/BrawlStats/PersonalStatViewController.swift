@@ -37,6 +37,18 @@ class PersonalStatViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    func getTrophyChange() -> Int {
+        var trophyChange = 0;
+        for battle in battlelog {
+            trophyChange += battle.trophyChange
+        }
+        return trophyChange
+    }
+    
+    func getNumBattles() -> Int {
+        return battlelog.count
+    }
+    
     func initBattlelog() {
         let battleArray = battlelogResults["items"]
         
@@ -47,27 +59,28 @@ class PersonalStatViewController: UIViewController {
             
             var tempBattle = Battle()
             tempBattle.duration = battleDetails["duration"] as? Int ?? 0
-            tempBattle.mode = battleDetails["mode"] as! String
+            tempBattle.mode = battleDetails["mode"] as? String ?? "no mode"
             tempBattle.result = battleDetails["result"] as? String ?? "rank"
             tempBattle.rank = battleDetails["rank"] as? Int ?? -1
             tempBattle.trophyChange = battleDetails["trophyChange"] as? Int ?? 0
             tempBattle.type = battleDetails["type"] as? String ?? "unranked"
             
             var tempEvent = Event()
-            tempEvent.id = eventDetails["id"] as! Int
-            tempEvent.map = eventDetails["map"] as! String
-            tempEvent.mode = eventDetails["mode"] as! String
+            tempEvent.id = eventDetails["id"] as? Int ?? -1
+            tempEvent.map = eventDetails["map"] as? String ?? "no map"
+            tempEvent.mode = eventDetails["mode"] as? String ?? "no mode"
             
             tempBattle.event = tempEvent
             
             battlelog.append(tempBattle)
         }
-        print("battlelog: \(battlelog)")
+        print("battlelog length: \(battlelog.count)")
     }
     
     
 
     func getBattleLog() {
+        var done = false
         var usertag = player.tag
         // Since usertags start with a #, we remove the first character
         usertag.remove(at: usertag.startIndex)
@@ -86,8 +99,12 @@ class PersonalStatViewController: UIViewController {
 
                 self.initBattlelog()
             }
+            done = true
         }
         task.resume()
+        repeat {
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.01))
+        } while !done
     }
     
 
@@ -119,7 +136,7 @@ class PersonalStatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getBattleLog()
+        
         roundedView.layer.cornerRadius = 38
         NameTextField.text = player.name
         ClubTextField.text = player.club["name"] ?? "No Club"
@@ -143,6 +160,10 @@ class PersonalStatViewController: UIViewController {
             spike
             poco
          */
+        getBattleLog()
+        print("Player Name: \(player.name)")
+        print("Number of Battles: \(getNumBattles())")
+        print("Trophy Change: \(getTrophyChange())")
     }
     
 
