@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Foundation
 
 class PersonalStatViewController: UIViewController {
+    
+    var battlelog = [Battle]()
+    var battlelogResults = [String: Any]()
+
     
     var player = Player()
     @IBOutlet weak var NameTextField: UILabel!
@@ -32,9 +37,57 @@ class PersonalStatViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    func initBattlelog() {
+        let battleArray = battlelogResults["items"]
+        
+        for battle in battleArray as! [[String: Any]] {
+            let battleDetails:NSDictionary = battle["battle"] as! NSDictionary
+            let eventDetails:NSDictionary = battle["event"] as! NSDictionary
+            // print(battleDetails)
+            
+            var tempBattle = Battle()
+            tempBattle.duration = battleDetails["duration"] as? Int ?? 0
+            tempBattle.mode = battleDetails["mode"] as! String
+            tempBattle.result = battleDetails["result"] as? String ?? "rank"
+            tempBattle.rank = battleDetails["rank"] as? Int ?? -1
+            tempBattle.trophyChange = battleDetails["trophyChange"] as? Int ?? 0
+            tempBattle.type = battleDetails["type"] as? String ?? "unranked"
+            
+            var tempEvent = Event()
+            tempEvent.id = eventDetails["id"] as! Int
+            tempEvent.map = eventDetails["map"] as! String
+            tempEvent.mode = eventDetails["mode"] as! String
+            
+            tempBattle.event = tempEvent
+            
+            battlelog.append(tempBattle)
+        }
+        print("battlelog: \(battlelog)")
+    }
+    
+    
 
     func getBattleLog() {
-        
+        var usertag = player.tag
+        // Since usertags start with a #, we remove the first character
+        usertag.remove(at: usertag.startIndex)
+        print(usertag)
+        let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)/battlelog")!
+         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { data, _, error in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                // self.addRecentSearch(usertag: usertag)
+                print("typeof data: \(type(of: data))")
+                self.battlelogResults = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+
+                self.initBattlelog()
+            }
+        }
+        task.resume()
     }
     
 
@@ -66,6 +119,7 @@ class PersonalStatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        getBattleLog()
         roundedView.layer.cornerRadius = 38
         NameTextField.text = player.name
         ClubTextField.text = player.club["name"] ?? "No Club"
