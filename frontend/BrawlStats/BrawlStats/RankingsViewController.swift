@@ -8,17 +8,26 @@
 
 import UIKit
 
-class RankingsViewController: UIViewController {
+class RankingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // raw data a list of top 200 players
+    // raw data a list of top 200 players, DO NOT USE
     var playerList = [[String: Any]]()
     
-    // array of RankPlayer
+    // array of RankPlayer, Use this!
     var playerArr = [RankPlayer]()
+    
+    // ranking tableview
+    @IBOutlet weak var rankingTableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.rankingTableView.dataSource = self
+        self.rankingTableView.delegate = self
+        
         getData()
+
     }
     
     func getData() {
@@ -38,6 +47,8 @@ class RankingsViewController: UIViewController {
                 
                 self.playerList = rawData["items"] as! [[String: Any]]
                 self.initArr()
+                self.rankingTableView.reloadData()
+                print(self.playerArr.count)
             }
         }
         task.resume()
@@ -56,22 +67,22 @@ class RankingsViewController: UIViewController {
                 tempRankPlayer.clubName = ""
             }
             tempRankPlayer.nameColor = playerList[i]["nameColor"] as? String ?? "0xFFFFFFFF"
-             
+            playerArr.append(tempRankPlayer)
         }
         
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return playerArr.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RankingsPlayerTableViewCell") as! RankingsPlayerTableViewCell
+        let player = playerArr[indexPath.row]
+        cell.nameLabel.text = player.name
+        cell.tagLabel.text = player.tag
+        
+        return cell
+    }
 
 }

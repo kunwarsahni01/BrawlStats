@@ -15,6 +15,7 @@
 		1000C3D12432B07D0003EF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */; };
 		1000C3DC2432B07D0003EF64 /* BrawlStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3DB2432B07D0003EF64 /* BrawlStatsTests.swift */; };
 		1000C3E72432B07D0003EF64 /* BrawlStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */; };
+		1053DC4F24493210001546D4 /* RankingsPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */; };
 		10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10684447243BEE98004B721A /* PersonalStatViewController.swift */; };
 		1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */; };
 		1EEB13642449017200DE5B4A /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13632449017200DE5B4A /* Battle.swift */; };
@@ -57,6 +58,7 @@
 		1000C3E22432B07D0003EF64 /* BrawlStatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrawlStatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1000C3E62432B07D0003EF64 /* BrawlStatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrawlStatsUITests.swift; sourceTree = "<group>"; };
 		1000C3E82432B07D0003EF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		10684447243BEE98004B721A /* PersonalStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStatViewController.swift; sourceTree = "<group>"; };
 		1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
 		1EEB13632449017200DE5B4A /* Battle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				1EEB13672449027E00DE5B4A /* Event.swift */,
 				1000C3CA2432B07D0003EF64 /* Main.storyboard */,
 				1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */,
+				1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */,
 				1000C3CD2432B07D0003EF64 /* Assets.xcassets */,
 				1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */,
 				1000C3D22432B07D0003EF64 /* Info.plist */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */,
+				1053DC4F24493210001546D4 /* RankingsPlayerTableViewCell.swift in Sources */,
 				97976F652438D53000A36A4B /* Player.swift in Sources */,
 				1000C3C92432B07D0003EF64 /* EnterPlayerTagViewController.swift in Sources */,
 				1EEB13642449017200DE5B4A /* Battle.swift in Sources */,
