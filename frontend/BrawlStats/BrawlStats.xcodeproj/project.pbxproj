@@ -21,7 +21,10 @@
 		1EEB13642449017200DE5B4A /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13632449017200DE5B4A /* Battle.swift */; };
 		1EEB13662449022C00DE5B4A /* BattlePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13652449022C00DE5B4A /* BattlePlayer.swift */; };
 		1EEB13682449027E00DE5B4A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13672449027E00DE5B4A /* Event.swift */; };
+		9716A5D7244A208800771B53 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716A5D6244A208800771B53 /* HomeStatsViewController.swift */; };
+		9716A5D9244A397000771B53 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716A5D8244A397000771B53 /* RecentCollectionViewCell.swift */; };
 		97261A3F2445403E0077A2E3 /* Nougat-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */; };
+		977156222449EC6C00D5D25C /* EnterPersonalTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977156212449EC6C00D5D25C /* EnterPersonalTagViewController.swift */; };
 		97976F652438D53000A36A4B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F642438D53000A36A4B /* Player.swift */; };
 		97976F672438D53D00A36A4B /* Brawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F662438D53D00A36A4B /* Brawler.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +67,10 @@
 		1EEB13632449017200DE5B4A /* Battle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
 		1EEB13652449022C00DE5B4A /* BattlePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePlayer.swift; sourceTree = "<group>"; };
 		1EEB13672449027E00DE5B4A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9716A5D6244A208800771B53 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
+		9716A5D8244A397000771B53 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nougat-ExtraBlack.ttf"; sourceTree = "<group>"; };
+		977156212449EC6C00D5D25C /* EnterPersonalTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPersonalTagViewController.swift; sourceTree = "<group>"; };
 		97976F642438D53000A36A4B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		97976F662438D53D00A36A4B /* Brawler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brawler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +123,7 @@
 		1000C3C32432B07D0003EF64 /* BrawlStats */ = {
 			isa = PBXGroup;
 			children = (
+				977156212449EC6C00D5D25C /* EnterPersonalTagViewController.swift */,
 				1000C3C42432B07D0003EF64 /* AppDelegate.swift */,
 				1000C3C62432B07D0003EF64 /* SceneDelegate.swift */,
 				1000C3C82432B07D0003EF64 /* EnterPlayerTagViewController.swift */,
@@ -125,14 +132,16 @@
 				1EEB13652449022C00DE5B4A /* BattlePlayer.swift */,
 				1EEB13672449027E00DE5B4A /* Event.swift */,
 				1000C3CA2432B07D0003EF64 /* Main.storyboard */,
+				9716A5D6244A208800771B53 /* HomeStatsViewController.swift */,
 				1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */,
 				1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */,
 				1000C3CD2432B07D0003EF64 /* Assets.xcassets */,
 				1000C3CF2432B07D0003EF64 /* LaunchScreen.storyboard */,
 				1000C3D22432B07D0003EF64 /* Info.plist */,
+				9716A5D8244A397000771B53 /* RecentCollectionViewCell.swift */,
+				1EEB13632449017200DE5B4A /* Battle.swift */,
 				10684447243BEE98004B721A /* PersonalStatViewController.swift */,
 				97261A40244540490077A2E3 /* fonts */,
-				1EEB13632449017200DE5B4A /* Battle.swift */,
 			);
 			path = BrawlStats;
 			sourceTree = "<group>";
@@ -297,12 +306,15 @@
 			files = (
 				10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */,
 				1053DC4F24493210001546D4 /* RankingsPlayerTableViewCell.swift in Sources */,
+				9716A5D7244A208800771B53 /* HomeStatsViewController.swift in Sources */,
 				97976F652438D53000A36A4B /* Player.swift in Sources */,
 				1000C3C92432B07D0003EF64 /* EnterPlayerTagViewController.swift in Sources */,
 				1EEB13642449017200DE5B4A /* Battle.swift in Sources */,
 				1EEB13682449027E00DE5B4A /* Event.swift in Sources */,
 				1000C3C52432B07D0003EF64 /* AppDelegate.swift in Sources */,
 				97976F672438D53D00A36A4B /* Brawler.swift in Sources */,
+				977156222449EC6C00D5D25C /* EnterPersonalTagViewController.swift in Sources */,
+				9716A5D9244A397000771B53 /* RecentCollectionViewCell.swift in Sources */,
 				1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */,
 				1EEB13662449022C00DE5B4A /* BattlePlayer.swift in Sources */,
 				1000C3C72432B07D0003EF64 /* SceneDelegate.swift in Sources */,

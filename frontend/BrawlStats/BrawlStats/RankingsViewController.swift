@@ -16,6 +16,8 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // array of RankPlayer, Use this!
     var playerArr = [RankPlayer]()
     
+    var player = Player()
+    
     // ranking tableview
     @IBOutlet weak var rankingTableView: UITableView!
     
@@ -25,7 +27,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.rankingTableView.dataSource = self
         self.rankingTableView.delegate = self
-        
+        rankingTableView.separatorStyle = .none
         getData()
 
     }
@@ -84,5 +86,20 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //player = playerArr[indexPath.row]
+        //performSegue(withIdentifier: "tableToStats", sender: self)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "tableToStats" {
+            if let personalStats = segue.destination as? PersonalStatViewController {
+                personalStats.player = player
+            }
+        }
+        
+    }
 }

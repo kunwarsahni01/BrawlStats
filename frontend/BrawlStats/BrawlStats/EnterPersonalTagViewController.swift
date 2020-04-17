@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  EnterPersonalTagViewController.swift
 //  BrawlStats
 //
-//  Created by Tony Chen on 3/30/20.
+//  Created by Kunwar Sahni on 4/17/20.
 //  Copyright © 2020 BrawlStats-Purdue. All rights reserved.
 //
 
 import UIKit
-import Foundation
 
-class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
-    
+class EnterPersonalTagViewController: UIViewController {
     @IBOutlet var userTagField: UITextField!
-    @IBOutlet weak var UserTagView: UIView!
-    @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var userTagView: UIView!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var player = Player()
@@ -30,81 +27,11 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserTagView.layer.cornerRadius = 10
-        roundedView.layer.cornerRadius = 38
+        userTagView.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let userDefaults = UserDefaults.standard
-        
-        // If searches hasn't been setup yet, it will be initialized as an empty array
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
-        
-        // print(searches)
-        /*
-        for (index, search) in searches.enumerated() {
-            let buttonWidth = 150
-            let buttonHeight = 50
-            
-            // for each search, we want to create a new button on the view.
-            let button = UIButton(frame: CGRect(x: (Int(self.view.frame.size.width) - buttonWidth) / 2, y: (Int(self.view.frame.size.height) / 2) + 55*index, width: buttonWidth, height: buttonHeight))
-            button.backgroundColor = .blue
-            button.setTitle(search, for: .normal)
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            self.view.addSubview(button)
-        }
-        */
-    }
-    
-    
-    @objc func buttonAction(sender: UIButton!) {
-        //print("Button tapped")
-        //print(sender.titleLabel!.text!)
-        
-        self.getData(usertag: sender.titleLabel!.text!)
-    }
-    
-    
-    func addRecentSearch(usertag: String) {
-        let userDefaults = UserDefaults.standard
-        
-        // If searches hasn't been setup yet, it will be initialized as an empty array
-        var searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
-        
-        // to make sure we don't have duplicates, only insert if they dont already exist
-        if (!searches.contains(usertag)) {
-            // insert the new usertag at the front
-            searches.insert(usertag, at: 0);
-        }
-        
-        // if the length is now longer than numRecentSearches, we will remove the final element
-        if (searches.count > numRecentSearches) {
-            searches.removeLast()
-        }
-        
-        // Now we put the data back in UserDefaults.
-        
-        userDefaults.set(searches, forKey: recentSearchKey)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let userDefaults = UserDefaults.standard
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
-        return searches.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCollectionViewCell", for: indexPath) as! RecentCollectionViewCell
-        let userDefaults = UserDefaults.standard
-        let searches: [String] = userDefaults.object(forKey: recentSearchKey) as? [String] ?? []
-        cell.userLabel.text = searches[indexPath.row]
-        cell.imageView.image = UIImage(named: "colt")
-         return cell
     }
     
     func getData(usertag: String) {
@@ -118,7 +45,6 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                self.addRecentSearch(usertag: usertag)
                 self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
@@ -153,7 +79,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
             self.present(alert, animated: true)
             return
         } else {
-            performSegue(withIdentifier: "EnterTagToPersonalStat", sender: self)
+            performSegue(withIdentifier: "EnterToHome", sender: self)
         }
     }
     
@@ -197,11 +123,12 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate,U
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "EnterTagToPersonalStat" {
-            if let personalStatPage = segue.destination as? PersonalStatViewController {
-                personalStatPage.player = player
+        if segue.identifier == "EnterToHome" {
+            if let homeStatPage = segue.destination as? HomeStatsViewController {
+                homeStatPage.player = player
             }
         }
         
     }
+
 }
