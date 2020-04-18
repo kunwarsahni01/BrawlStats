@@ -14,7 +14,6 @@ class HomeStatsViewController: UIViewController {
     var battlelog = [Battle]()
     var battlelogResults = [String: Any]()
 
-    
     var player = Player()
     @IBOutlet weak var NameTextField: UILabel!
     @IBOutlet weak var ClubTextField: UILabel!
@@ -80,11 +79,15 @@ class HomeStatsViewController: UIViewController {
     
 
     func getBattleLog() {
-        var done = false
+        
         var usertag = player.tag
         // Since usertags start with a #, we remove the first character
         usertag.remove(at: usertag.startIndex)
         print(usertag)
+        getData(usertag: usertag)
+    }
+    
+    func getData(usertag: String) {
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)/battlelog")!
          let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -98,13 +101,12 @@ class HomeStatsViewController: UIViewController {
                 self.battlelogResults = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
 
                 self.initBattlelog()
+                print("Player Name: \(self.player.name)")
+                print("Number of Battles: \(self.getNumBattles())")
+                print("Trophy Change: \(self.getTrophyChange())")
             }
-            done = true
         }
         task.resume()
-        repeat {
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.01))
-        } while !done
     }
     
 
@@ -157,9 +159,6 @@ class HomeStatsViewController: UIViewController {
             poco
          */
         getBattleLog()
-        print("Player Name: \(player.name)")
-        print("Number of Battles: \(getNumBattles())")
-        print("Trophy Change: \(getTrophyChange())")
     }
     
 

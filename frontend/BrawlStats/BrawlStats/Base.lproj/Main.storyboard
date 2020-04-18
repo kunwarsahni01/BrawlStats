@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -83,7 +83,7 @@ Rankings</string>
                     <tabBarItem key="tabBarItem" title="" image="chart.bar.fill" catalog="system" id="x1D-cs-p80"/>
                     <connections>
                         <outlet property="rankingTableView" destination="i7U-hZ-bw6" id="NfA-SD-3Ll"/>
-                        <segue destination="ZyW-tC-xkT" kind="show" identifier="tableToStats" id="3mC-ey-Kwv"/>
+                        <segue destination="ZyW-tC-xkT" kind="show" identifier="tableToStat" id="usv-vy-5OR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd4-ak-mme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -476,7 +476,7 @@ stack-up?</string>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1046" y="-664"/>
+            <point key="canvasLocation" x="882" y="-664"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ETa-Vv-609">
@@ -520,13 +520,13 @@ stack-up?</string>
         <!--Home Stats View Controller-->
         <scene sceneID="zBY-2l-HE4">
             <objects>
-                <viewController id="ZyW-tC-xkT" customClass="HomeStatsViewController" customModule="BrawlStats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZyW-tC-xkT" customClass="HomeStatsViewController" customModule="BrawlStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="03l-18-0wy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1246"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n20-HJ-JPE">
-                                <rect key="frame" x="0.0" y="-44" width="375" height="1290"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmQ-PY-5U3" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="44" width="375" height="1300"/>
@@ -695,7 +695,7 @@ stack-up?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvg-s3-B2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="763"/>
+            <point key="canvasLocation" x="105" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fN5-Lw-QZZ">
@@ -717,23 +717,23 @@ stack-up?</string>
             <point key="canvasLocation" x="-1815.2" y="762.5615763546798"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="3mC-ey-Kwv"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Button-Login" width="933" height="144"/>
         <image name="SearcHeader" width="1125" height="1125"/>
         <image name="SecondFeedItems" width="1595" height="1585"/>
         <image name="Tropy-Progress" width="933" height="510"/>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="battleLog" width="592" height="1268"/>
-        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
         <image name="colt" width="810" height="939"/>
         <image name="crow" width="894" height="951"/>
         <image name="feedItems" width="933" height="444"/>
         <image name="gradeBackground" width="1125" height="2436"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="roboTime" width="592" height="592"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="usv-vy-5OR"/>
+    </inferredMetricsTieBreakers>
 </document>

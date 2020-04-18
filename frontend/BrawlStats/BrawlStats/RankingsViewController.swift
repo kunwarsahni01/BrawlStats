@@ -16,7 +16,9 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // array of RankPlayer, Use this!
     var playerArr = [RankPlayer]()
     
-    var player = Player()
+    var selectedPlayer = Player()
+    var personalStat = [String: Any]()
+    var brawlers = [[String: Any]]()
     
     // ranking tableview
     @IBOutlet weak var rankingTableView: UITableView!
@@ -50,7 +52,6 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.playerList = rawData["items"] as! [[String: Any]]
                 self.initArr()
                 self.rankingTableView.reloadData()
-                print(self.playerArr.count)
             }
         }
         task.resume()
@@ -86,20 +87,75 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //player = playerArr[indexPath.row]
-        //performSegue(withIdentifier: "tableToStats", sender: self)
+        let selectedTag = playerArr[indexPath.row].tag.dropFirst()
+        getData(usertag: String(selectedTag))
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "tableToStats" {
-            if let personalStats = segue.destination as? PersonalStatViewController {
-                personalStats.player = player
+        if segue.identifier == "tableToStat" {
+            if let personalStats = segue.destination as? HomeStatsViewController {
+                personalStats.player = selectedPlayer
             }
         }
         
+    }
+    
+    func getData(usertag: String) {
+        // getting json from URL
+        let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) { data, _, error in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                self.personalStat = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                self.initStruct()
+                self.segToStat()
+            }
+        }
+        task.resume()
+    }
+    
+    func segToStat() {
+        print(self.selectedPlayer)
+        performSegue(withIdentifier: "tableToStat", sender: self)
+    }
+    
+    func initStruct() {
+        selectedPlayer.tag = personalStat["tag"] as? String ?? "#000000000"
+        selectedPlayer.name = personalStat["name"] as? String ?? "Name Not Found"
+        selectedPlayer.nameColor = personalStat["nameColor"] as? String ?? "#FFFFFFFF"
+        selectedPlayer.trophies = personalStat["trophies"] as? Int ?? 0
+        selectedPlayer.highestTrophies = personalStat["highestTrophies"] as? Int ?? 0
+        selectedPlayer.expLevel = personalStat["expLevel"] as? Int ?? 0
+        selectedPlayer.expPoints = personalStat["expPoints"] as? Int ?? 0
+        selectedPlayer.isQualifiedFromChampionshipChallenge = personalStat["isQualifiedFromChampionshipChallenge"] as? Bool ?? false
+        selectedPlayer.ThreeVSThreeVictories = personalStat["3vs3Victories"] as? Int ?? 0
+        selectedPlayer.soloVictories = personalStat["soloVictories"] as? Int ?? 0
+        selectedPlayer.duoVictories = personalStat["duoVictories"] as? Int ?? 0
+        selectedPlayer.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as? Int ?? 0
+        selectedPlayer.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
+        selectedPlayer.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
+        selectedPlayer.club = personalStat["club"] as? [String: String] ?? [String:String]()
+        brawlers = personalStat["brawlers"] as? [[String: Any]] ?? [[String: Any]]()
+        for brawler in brawlers {
+            var insert = Brawler()
+            insert.id = brawler["id"] as? Int ?? 0
+            insert.name = brawler["name"] as? String ?? ""
+            insert.power = brawler["power"] as? Int ?? 0
+            insert.rank = brawler["rank"] as? Int ?? 0
+            insert.trophies = brawler["trophies"] as? Int ?? 0
+            insert.highestTrophies = brawler["highestTrophies"] as? Int ?? 0
+            //insert.starPowers = brawler["starPowers"] as! [String: String]
+            selectedPlayer.brawlers.append(insert)
+        }
     }
 }
