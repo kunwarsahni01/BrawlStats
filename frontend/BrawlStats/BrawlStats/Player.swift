@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Player:Codable, Equatable {
+struct Player: Codable, Equatable {
     static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.tag == rhs.tag
     }
-    
+
     var tag: String = ""
     var name: String = ""
     var nameColor: String = ""
@@ -26,11 +26,11 @@ struct Player:Codable, Equatable {
     var duoVictories: Int = 0
     var bestRoboRumbleTime: Int = 0
     var bestTimeAsBigBrawler: Int = 0
-    var club: [String : String] = [:]
+    var club: [String: String] = [:]
     var brawlers: [Brawler] = []
 }
 
-struct RankPlayer:Codable {
+struct RankPlayer: Codable {
     var tag: String = ""
     var rank: Int = 0
     var trophies: Int = 0

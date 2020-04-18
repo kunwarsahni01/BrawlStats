@@ -8,17 +8,16 @@
 
 import Foundation
 
-struct Battle:Codable {
+struct Battle: Codable {
     var duration: Int = 0
     var mode: String = ""
     var result: String = ""
     var rank: Int = 0
     var trophyChange: Int = 0
     var type: String = ""
-    //var starPlayer: BattlePlayer = BattlePlayer()
+    // var starPlayer: BattlePlayer = BattlePlayer()
     // Teams
-    //var teams: [BattlePlayer]
+    // var teams: [BattlePlayer]
     // var battleTime: String = ""
     var event: Event = Event()
-    
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class RankingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     // raw data a list of top 200 players, DO NOT USE
     var playerList = [[String: Any]]()
     
@@ -21,17 +20,25 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var brawlers = [[String: Any]]()
     
     // ranking tableview
-    @IBOutlet weak var rankingTableView: UITableView!
+    @IBOutlet var rankingTableView: UITableView!
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.rankingTableView.dataSource = self
-        self.rankingTableView.delegate = self
+        rankingTableView.dataSource = self
+        rankingTableView.delegate = self
         rankingTableView.separatorStyle = .none
         getData()
-
     }
     
     func getData() {
@@ -72,7 +79,6 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
             tempRankPlayer.nameColor = playerList[i]["nameColor"] as? String ?? "0xFFFFFFFF"
             playerArr.append(tempRankPlayer)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,7 +90,9 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let player = playerArr[indexPath.row]
         cell.nameLabel.text = player.name
         cell.tagLabel.text = player.tag
-        
+        cell.profileImage.image = UIImage(named: "hero_icon_crow_new_big")
+        cell.profileImage.layer.cornerRadius = 20
+        cell.profileImage.clipsToBounds = true
         return cell
     }
     
@@ -94,15 +102,15 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "tableToStat" {
-            if let personalStats = segue.destination as? HomeStatsViewController {
+            if let personalStats = segue.destination as? PersonalStatViewController {
                 personalStats.player = selectedPlayer
             }
         }
-        
     }
     
     func getData(usertag: String) {
@@ -125,7 +133,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func segToStat() {
-        print(self.selectedPlayer)
+        print(selectedPlayer)
         performSegue(withIdentifier: "tableToStat", sender: self)
     }
     
@@ -144,7 +152,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         selectedPlayer.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as? Int ?? 0
         selectedPlayer.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
         selectedPlayer.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
-        selectedPlayer.club = personalStat["club"] as? [String: String] ?? [String:String]()
+        selectedPlayer.club = personalStat["club"] as? [String: String] ?? [String: String]()
         brawlers = personalStat["brawlers"] as? [[String: Any]] ?? [[String: Any]]()
         for brawler in brawlers {
             var insert = Brawler()
@@ -154,7 +162,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
             insert.rank = brawler["rank"] as? Int ?? 0
             insert.trophies = brawler["trophies"] as? Int ?? 0
             insert.highestTrophies = brawler["highestTrophies"] as? Int ?? 0
-            //insert.starPowers = brawler["starPowers"] as! [String: String]
+            // insert.starPowers = brawler["starPowers"] as! [String: String]
             selectedPlayer.brawlers.append(insert)
         }
     }

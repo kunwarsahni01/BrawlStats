@@ -6,39 +6,37 @@
 //  Copyright © 2020 BrawlStats-Purdue. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
 class PersonalStatViewController: UIViewController {
-    
     var battlelog = [Battle]()
     var battlelogResults = [String: Any]()
-
     
     var player = Player()
-    @IBOutlet weak var NameTextField: UILabel!
-    @IBOutlet weak var ClubTextField: UILabel!
-    @IBOutlet weak var TrophyTextField: UILabel!
-    @IBOutlet weak var XpTextField: UILabel!
-    @IBOutlet weak var roundedView: UIView!
-    @IBOutlet weak var SolosTextField: UILabel!
-    @IBOutlet weak var DuosTextField: UILabel!
-    @IBOutlet weak var ThreeVThreeTextField: UILabel!
-    @IBOutlet weak var RoboTimeTextField: UILabel!
-    @IBOutlet weak var CharacterImageView: UIImageView!
+    @IBOutlet var NameTextField: UILabel!
+    @IBOutlet var ClubTextField: UILabel!
+    @IBOutlet var TrophyTextField: UILabel!
+    @IBOutlet var XpTextField: UILabel!
+    @IBOutlet var roundedView: UIView!
+    @IBOutlet var SolosTextField: UILabel!
+    @IBOutlet var DuosTextField: UILabel!
+    @IBOutlet var ThreeVThreeTextField: UILabel!
+    @IBOutlet var RoboTimeTextField: UILabel!
+    @IBOutlet var CharacterImageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func getTrophyChange() -> Int {
-        var trophyChange = 0;
+        var trophyChange = 0
         for battle in battlelog {
             trophyChange += battle.trophyChange
         }
@@ -53,8 +51,8 @@ class PersonalStatViewController: UIViewController {
         let battleArray = battlelogResults["items"]
         
         for battle in battleArray as! [[String: Any]] {
-            let battleDetails:NSDictionary = battle["battle"] as! NSDictionary
-            let eventDetails:NSDictionary = battle["event"] as! NSDictionary
+            let battleDetails: NSDictionary = battle["battle"] as! NSDictionary
+            let eventDetails: NSDictionary = battle["event"] as! NSDictionary
             // print(battleDetails)
             
             var tempBattle = Battle()
@@ -77,8 +75,6 @@ class PersonalStatViewController: UIViewController {
         print("battlelog length: \(battlelog.count)")
     }
     
-    
-
     func getBattleLog() {
         var done = false
         var usertag = player.tag
@@ -86,7 +82,7 @@ class PersonalStatViewController: UIViewController {
         usertag.remove(at: usertag.startIndex)
         print(usertag)
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)/battlelog")!
-         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { data, _, error in
             // This will run when the network request returns
@@ -96,7 +92,7 @@ class PersonalStatViewController: UIViewController {
                 // self.addRecentSearch(usertag: usertag)
                 print("typeof data: \(type(of: data))")
                 self.battlelogResults = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-
+                
                 self.initBattlelog()
             }
             done = true
@@ -107,32 +103,29 @@ class PersonalStatViewController: UIViewController {
         } while !done
     }
     
-
     // This function looks at the current player and returns the Brawler object of the highest trophy brawler the player has
     func highestTropheyBrawler() -> (Brawler) {
-        
         let brawlers = player.brawlers
         // print(brawlers)
         
-        var highestBrawler = brawlers[0];
+        var highestBrawler = brawlers[0]
         
         for brawler in brawlers {
             // print(brawler)
-            if (brawler.trophies > highestBrawler.trophies) {
-                highestBrawler = brawler;
+            if brawler.trophies > highestBrawler.trophies {
+                highestBrawler = brawler
             }
         }
         
-        print(highestBrawler);
+        print(highestBrawler)
         
         return highestBrawler
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -140,7 +133,7 @@ class PersonalStatViewController: UIViewController {
         roundedView.layer.cornerRadius = 38
         NameTextField.text = player.name
         ClubTextField.text = player.club["name"] ?? "No Club"
-
+        
         TrophyTextField.text = String(player.trophies)
         XpTextField.text = String(player.expPoints)
         // highestTropheyBrawler()
@@ -154,11 +147,11 @@ class PersonalStatViewController: UIViewController {
         CharacterImageView.image = UIImage(named: "colt")
         // Change Character Image View through line above.
         /*
-            Current Character Models:
-            colt
-            crow
-            spike
-            poco
+         Current Character Models:
+         colt
+         crow
+         spike
+         poco
          */
         getBattleLog()
         print("Player Name: \(player.name)")
@@ -166,8 +159,7 @@ class PersonalStatViewController: UIViewController {
         print("Trophy Change: \(getTrophyChange())")
     }
     
-
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -491,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 53YXMG5TK4;
+				DEVELOPMENT_TEAM = KY3WH54F32;
 				INFOPLIST_FILE = BrawlStats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 53YXMG5TK4;
+				DEVELOPMENT_TEAM = KY3WH54F32;
 				INFOPLIST_FILE = BrawlStats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

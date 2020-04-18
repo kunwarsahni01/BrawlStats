@@ -9,7 +9,7 @@
 import Foundation
 
 struct BattlePlayer: Codable {
-    var brawler:Brawler = Brawler()
-    var name:String = ""
-    var tag:String = ""
+    var brawler: Brawler = Brawler()
+    var name: String = ""
+    var tag: String = ""
 }

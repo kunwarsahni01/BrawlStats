@@ -9,35 +9,33 @@
 import UIKit
 
 class HomeStatsViewController: UIViewController {
-
-    
     var battlelog = [Battle]()
     var battlelogResults = [String: Any]()
-
+    
     var player = Player()
-    @IBOutlet weak var NameTextField: UILabel!
-    @IBOutlet weak var ClubTextField: UILabel!
-    @IBOutlet weak var TrophyTextField: UILabel!
-    @IBOutlet weak var XpTextField: UILabel!
-    @IBOutlet weak var roundedView: UIView!
-    @IBOutlet weak var SolosTextField: UILabel!
-    @IBOutlet weak var DuosTextField: UILabel!
-    @IBOutlet weak var ThreeVThreeTextField: UILabel!
-    @IBOutlet weak var RoboTimeTextField: UILabel!
-    @IBOutlet weak var CharacterImageView: UIImageView!
+    @IBOutlet var NameTextField: UILabel!
+    @IBOutlet var ClubTextField: UILabel!
+    @IBOutlet var TrophyTextField: UILabel!
+    @IBOutlet var XpTextField: UILabel!
+    @IBOutlet var roundedView: UIView!
+    @IBOutlet var SolosTextField: UILabel!
+    @IBOutlet var DuosTextField: UILabel!
+    @IBOutlet var ThreeVThreeTextField: UILabel!
+    @IBOutlet var RoboTimeTextField: UILabel!
+    @IBOutlet var CharacterImageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func getTrophyChange() -> Int {
-        var trophyChange = 0;
+        var trophyChange = 0
         for battle in battlelog {
             trophyChange += battle.trophyChange
         }
@@ -52,8 +50,8 @@ class HomeStatsViewController: UIViewController {
         let battleArray = battlelogResults["items"]
         
         for battle in battleArray as! [[String: Any]] {
-            let battleDetails:NSDictionary = battle["battle"] as! NSDictionary
-            let eventDetails:NSDictionary = battle["event"] as! NSDictionary
+            let battleDetails: NSDictionary = battle["battle"] as! NSDictionary
+            let eventDetails: NSDictionary = battle["event"] as! NSDictionary
             // print(battleDetails)
             
             var tempBattle = Battle()
@@ -76,10 +74,7 @@ class HomeStatsViewController: UIViewController {
         print("battlelog length: \(battlelog.count)")
     }
     
-    
-
     func getBattleLog() {
-        
         var usertag = player.tag
         // Since usertags start with a #, we remove the first character
         usertag.remove(at: usertag.startIndex)
@@ -89,7 +84,7 @@ class HomeStatsViewController: UIViewController {
     
     func getData(usertag: String) {
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)/battlelog")!
-         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { data, _, error in
             // This will run when the network request returns
@@ -99,7 +94,7 @@ class HomeStatsViewController: UIViewController {
                 // self.addRecentSearch(usertag: usertag)
                 print("typeof data: \(type(of: data))")
                 self.battlelogResults = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-
+                
                 self.initBattlelog()
                 print("Player Name: \(self.player.name)")
                 print("Number of Battles: \(self.getNumBattles())")
@@ -109,28 +104,25 @@ class HomeStatsViewController: UIViewController {
         task.resume()
     }
     
-
     // This function looks at the current player and returns the Brawler object of the highest trophy brawler the player has
     func highestTropheyBrawler() -> (Brawler) {
-        
         let brawlers = player.brawlers
         // print(brawlers)
         
-        var highestBrawler = brawlers[0];
+        var highestBrawler = brawlers[0]
         
         for brawler in brawlers {
             // print(brawler)
-            if (brawler.trophies > highestBrawler.trophies) {
-                highestBrawler = brawler;
+            if brawler.trophies > highestBrawler.trophies {
+                highestBrawler = brawler
             }
         }
         
-        print(highestBrawler);
+        print(highestBrawler)
         
         return highestBrawler
     }
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -138,7 +130,7 @@ class HomeStatsViewController: UIViewController {
         roundedView.layer.cornerRadius = 38
         NameTextField.text = player.name
         ClubTextField.text = player.club["name"] ?? "No Club"
-
+        
         TrophyTextField.text = String(player.trophies)
         XpTextField.text = String(player.expPoints)
         // highestTropheyBrawler()
@@ -152,14 +144,12 @@ class HomeStatsViewController: UIViewController {
         CharacterImageView.image = UIImage(named: "colt")
         // Change Character Image View through line above.
         /*
-            Current Character Models:
-            colt
-            crow
-            spike
-            poco
+         Current Character Models:
+         colt
+         crow
+         spike
+         poco
          */
         getBattleLog()
     }
-    
-
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Brawler:Codable {
+struct Brawler: Codable {
     var id: Int = 0
     var name: String = ""
     var power: Int = 0

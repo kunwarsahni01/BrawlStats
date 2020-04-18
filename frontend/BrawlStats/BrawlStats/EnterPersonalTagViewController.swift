@@ -8,9 +8,21 @@
 
 import UIKit
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class EnterPersonalTagViewController: UIViewController {
     @IBOutlet var userTagField: UITextField!
-    @IBOutlet weak var userTagView: UIView!
+    @IBOutlet var userTagView: UIView!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var player = Player()
@@ -21,7 +33,7 @@ class EnterPersonalTagViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -30,8 +42,8 @@ class EnterPersonalTagViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userTagView.layer.cornerRadius = 10
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
-        
     }
     
     func getData(usertag: String) {
@@ -56,27 +68,24 @@ class EnterPersonalTagViewController: UIViewController {
     }
     
     @IBAction func enterTapped(_ sender: Any) {
-        
-        if let text = userTagField.text?.uppercased(), !text.isEmpty
-        {
+        if let text = userTagField.text?.uppercased(), !text.isEmpty {
             let characterSet = Set(String("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890"))
             
             getData(usertag: String(text.filter { characterSet.contains($0) }))
         } else {
             let alert = UIAlertController(title: "Error", message: "Field is empty!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+            present(alert, animated: true)
             return
         }
     }
     
     func segToPersonalStat() {
         // print(player.club)
-        if (player.tag == "#000000000") {
-            
+        if player.tag == "#000000000" {
             let alert = UIAlertController(title: "Error", message: "Invalid Tag!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+            present(alert, animated: true)
             return
         } else {
             performSegue(withIdentifier: "EnterToHome", sender: self)
@@ -100,7 +109,7 @@ class EnterPersonalTagViewController: UIViewController {
         player.bestRoboRumbleTime = personalStat["bestRoboRumbleTime"] as? Int ?? 0
         player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
         player.bestTimeAsBigBrawler = personalStat["bestTimeAsBigBrawler"] as? Int ?? 0
-        player.club = personalStat["club"] as? [String: String] ?? [String:String]()
+        player.club = personalStat["club"] as? [String: String] ?? [String: String]()
         brawlers = personalStat["brawlers"] as? [[String: Any]] ?? [[String: Any]]()
         for brawler in brawlers {
             var insert = Brawler()
@@ -110,7 +119,7 @@ class EnterPersonalTagViewController: UIViewController {
             insert.rank = brawler["rank"] as? Int ?? 0
             insert.trophies = brawler["trophies"] as? Int ?? 0
             insert.highestTrophies = brawler["highestTrophies"] as? Int ?? 0
-            //insert.starPowers = brawler["starPowers"] as! [String: String]
+            // insert.starPowers = brawler["starPowers"] as! [String: String]
             player.brawlers.append(insert)
         }
     }
@@ -120,6 +129,7 @@ class EnterPersonalTagViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -128,7 +138,5 @@ class EnterPersonalTagViewController: UIViewController {
                 homeStatPage.player = player
             }
         }
-        
     }
-
 }
