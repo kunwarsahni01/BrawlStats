@@ -165,7 +165,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
                 //                self.printingInfo()
-                self.addRecentSearch(playerInfo: self.player)
+                
                 self.segToPersonalStat()
             }
         }
@@ -194,6 +194,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
             return
         } else {
             performSegue(withIdentifier: "EnterTagToPersonalStat", sender: self)
+            addRecentSearch(playerInfo: self.player)
         }
     }
     
