@@ -144,7 +144,21 @@ class PersonalStatViewController: UIViewController {
         DuosTextField.text = "Duo Victories: \(String(player.duoVictories))"
         ThreeVThreeTextField.text = "3v3 Victories: \(String(player.ThreeVSThreeVictories))"
         RoboTimeTextField.text = "Robo Time: \(String(player.bestRoboRumbleTime))"
-        CharacterImageView.image = UIImage(named: "colt")
+        
+        let highestBrawler = highestTropheyBrawler()
+        print("highestBraler: \(highestBrawler.name.lowercased())")
+        
+        var highestBrawlerName = highestBrawler.name
+        
+        if highestBrawlerName == "EL PRIMO" {
+            highestBrawlerName = "el_primo"
+        }
+        if highestBrawlerName == "MR. P" {
+            highestBrawlerName = "mr_p"
+        }
+        
+        
+        CharacterImageView.image = UIImage(named: highestBrawlerName.lowercased())
         // Change Character Image View through line above.
         /*
          Current Character Models:
@@ -157,6 +171,7 @@ class PersonalStatViewController: UIViewController {
         print("Player Name: \(player.name)")
         print("Number of Battles: \(getNumBattles())")
         print("Trophy Change: \(getTrophyChange())")
+        // print("Highest Trophy Brawler: \(highestTropheyBrawler())")
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
