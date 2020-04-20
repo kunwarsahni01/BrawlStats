@@ -99,7 +99,14 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         if !searches.contains(playerInfo) {
             // insert the new usertag at the front
             searches.insert(playerInfo, at: 0)
+        } else {
+            let index = searches.firstIndex(of: playerInfo)
+            searches[index ?? 0] = playerInfo
         }
+        
+        
+        
+        
         
         // if the length is now longer than numRecentSearches, we will remove the final element
         if searches.count > numRecentSearches {
@@ -127,12 +134,48 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         return searches.count
     }
     
+    // This function looks at the current player and returns the Brawler object of the highest trophy brawler the player has
+    func highestTropheyBrawler(player:Player) -> (Brawler) {
+        let brawlers = player.brawlers
+        // print(brawlers)
+        
+        var highestBrawler = brawlers[0]
+        
+        for brawler in brawlers {
+            // print(brawler)
+            if brawler.trophies > highestBrawler.trophies {
+                highestBrawler = brawler
+            }
+        }
+        
+        print(highestBrawler)
+        
+        return highestBrawler
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCollectionViewCell", for: indexPath) as! RecentCollectionViewCell
         // let userDefaults = UserDefaults.standard
         let searches: [Player] = getRecentSearchesPlayer()
-        cell.userLabel.text = searches[indexPath.row].name
-        cell.imageView.image = UIImage(named: "colt")
+        cell.userLabel.text = searches[indexPath.row].tag
+        cell.userName.text = searches[indexPath.row].name
+        
+        let tempPlayer = searches[indexPath.row]
+        
+        let highestBrawler = highestTropheyBrawler(player: tempPlayer)
+        print("highestBraler: \(highestBrawler.name.lowercased())")
+        
+        var highestBrawlerName = highestBrawler.name
+        
+        if highestBrawlerName == "EL PRIMO" {
+            highestBrawlerName = "el_primo"
+        }
+        if highestBrawlerName == "MR. P" {
+            highestBrawlerName = "mr_p"
+        }
+        cell.imageView.image = UIImage(named: highestBrawlerName.lowercased())
+        cell.imageView.layer.cornerRadius = 15
+        cell.imageView.clipsToBounds = true
         return cell
     }
     
@@ -193,8 +236,8 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
             present(alert, animated: true)
             return
         } else {
-            performSegue(withIdentifier: "EnterTagToPersonalStat", sender: self)
             addRecentSearch(playerInfo: self.player)
+            performSegue(withIdentifier: "EnterTagToPersonalStat", sender: self)
         }
     }
     

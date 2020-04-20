@@ -111,7 +111,7 @@ class PersonalStatViewController: UIViewController {
         var highestBrawler = brawlers[0]
         
         for brawler in brawlers {
-            // print(brawler)
+            print(brawler)
             if brawler.trophies > highestBrawler.trophies {
                 highestBrawler = brawler
             }

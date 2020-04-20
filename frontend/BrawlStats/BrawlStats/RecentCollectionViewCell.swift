@@ -11,4 +11,5 @@ import UIKit
 class RecentCollectionViewCell: UICollectionViewCell {
     @IBOutlet var userLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var userName: UILabel!
 }
