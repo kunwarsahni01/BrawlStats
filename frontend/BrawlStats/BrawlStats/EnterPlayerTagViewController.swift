@@ -104,10 +104,6 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
             searches[index ?? 0] = playerInfo
         }
         
-        
-        
-        
-        
         // if the length is now longer than numRecentSearches, we will remove the final element
         if searches.count > numRecentSearches {
             searches.removeLast()
@@ -176,6 +172,11 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         cell.imageView.image = UIImage(named: highestBrawlerName.lowercased())
         cell.imageView.layer.cornerRadius = 15
         cell.imageView.clipsToBounds = true
+//        cell.imageView.layer.shadowColor = UIColor.black.cgColor
+//        cell.imageView.layer.shadowOffset = CGSize(width: 20, height: 20)
+//        cell.imageView.layer.shadowRadius = 5
+//        cell.imageView.layer.shadowOpacity = 1
+        
         return cell
     }
     
