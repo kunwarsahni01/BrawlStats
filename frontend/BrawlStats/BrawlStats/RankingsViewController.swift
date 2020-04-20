@@ -18,6 +18,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedPlayer = Player()
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
+    var iconArr = ["1", "2", "3", "4", "5"]
     
     // ranking tableview
     @IBOutlet var rankingTableView: UITableView!
@@ -90,7 +91,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let player = playerArr[indexPath.row]
         cell.nameLabel.text = player.name
         cell.tagLabel.text = player.tag
-        cell.profileImage.image = UIImage(named: "hero_icon_crow_new_big")
+        cell.profileImage.image = UIImage(named: iconArr[abs(player.tag.hashValue % iconArr.count)])
         cell.profileImage.layer.cornerRadius = 20
         cell.profileImage.clipsToBounds = true
         return cell

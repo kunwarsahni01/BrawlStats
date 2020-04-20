@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -756,9 +756,6 @@ stack-up?</string>
             <point key="canvasLocation" x="-863.20000000000005" y="35.467980295566505"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lCT-yH-eze"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Button-Login" width="933" height="144"/>
         <image name="Feed-Item" width="933" height="300"/>
@@ -766,15 +763,18 @@ stack-up?</string>
         <image name="SearcHeader" width="1125" height="1125"/>
         <image name="SecondFeedItems" width="1595" height="1585"/>
         <image name="Tropy-Progress" width="933" height="510"/>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="battleLog" width="592" height="1268"/>
-        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
         <image name="colt" width="810" height="939"/>
         <image name="crow" width="810" height="939"/>
         <image name="feedItems" width="933" height="444"/>
         <image name="gradeBackground" width="1125" height="2436"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="roboTime" width="592" height="592"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="otY-eU-X7S"/>
+    </inferredMetricsTieBreakers>
 </document>
