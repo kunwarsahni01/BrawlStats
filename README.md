@@ -99,6 +99,12 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 
 The image on the right is the final update for functionality on the Search Page. Styling will be coming in Sprint 3.
 
+### Sprint 3 App Demo
+<img width="230" alt="Screen Shot 2020-04-01 at 6 19 47 PM" src="http://g.recordit.co/UcSH9iwJyO.gif">
+
+With Sprint 3, we completed a lot of the UI for the App. Additionally, the recent searches area is now fully functional. We also implemented a system to dynamically change the brawler image we show based on the highest trophy brawler of the player.
+
+
 ## Schema
 
 ### Models
