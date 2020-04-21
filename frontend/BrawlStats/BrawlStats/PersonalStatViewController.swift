@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Charts
 
 class PersonalStatViewController: UIViewController {
     var battlelog = [Battle]()
@@ -24,6 +25,7 @@ class PersonalStatViewController: UIViewController {
     @IBOutlet var ThreeVThreeTextField: UILabel!
     @IBOutlet var RoboTimeTextField: UILabel!
     @IBOutlet var CharacterImageView: UIImageView!
+    @IBOutlet weak var trophyGraph: LineChartView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -126,6 +128,21 @@ class PersonalStatViewController: UIViewController {
         return .lightContent
     }
     
+    
+    func setChartData() {
+        
+        // var currentTrophies = player.trophies
+        
+        let values = (0..<getNumBattles()).map { (i) -> ChartDataEntry in
+            let val = battlelog[i].trophyChange
+            return ChartDataEntry(x: Double(i), y: Double(val))
+        }
+        let set1 = LineChartDataSet(entries: values, label: "Trophy Change")
+        let data = LineChartData(dataSet: set1)
+        
+        self.trophyGraph.data = data
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -172,6 +189,16 @@ class PersonalStatViewController: UIViewController {
         print("Number of Battles: \(getNumBattles())")
         print("Trophy Change: \(getTrophyChange())")
         // print("Highest Trophy Brawler: \(highestTropheyBrawler())")
+        
+        
+        trophyGraph.drawBordersEnabled = true
+        trophyGraph.dragEnabled = true
+        trophyGraph.setScaleEnabled(true)
+        trophyGraph.pinchZoomEnabled = true
+        
+        
+        
+        setChartData()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
