@@ -10,6 +10,22 @@ import Foundation
 import UIKit
 import Charts
 
+extension UIColor {
+    convenience init?(hexString: String) {
+        var chars = Array(hexString.hasPrefix("#") ? hexString.dropFirst() : hexString[...])
+        switch chars.count {
+        case 3: chars = chars.flatMap { [$0, $0] }; fallthrough
+        case 6: chars = ["F","F"] + chars
+        case 8: break
+        default: return nil
+        }
+        self.init(red: .init(strtoul(String(chars[2...3]), nil, 16)) / 255,
+                green: .init(strtoul(String(chars[4...5]), nil, 16)) / 255,
+                 blue: .init(strtoul(String(chars[6...7]), nil, 16)) / 255,
+                alpha: .init(strtoul(String(chars[0...1]), nil, 16)) / 255)
+    }
+}
+
 class PersonalStatViewController: UIViewController {
     var battlelog = [Battle]()
     var battlelogResults = [String: Any]()
@@ -113,7 +129,7 @@ class PersonalStatViewController: UIViewController {
         var highestBrawler = brawlers[0]
         
         for brawler in brawlers {
-            print(brawler)
+            // print(brawler)
             if brawler.trophies > highestBrawler.trophies {
                 highestBrawler = brawler
             }
@@ -128,17 +144,56 @@ class PersonalStatViewController: UIViewController {
         return .lightContent
     }
     
+    func generateChartData() -> [Double] {
+        var currentTrophies = player.trophies
+        
+        var data = [Double]()
+        
+        data.append(Double(currentTrophies))
+        
+        for i in (0..<getNumBattles()).reversed() {
+            let tempTrophies = battlelog[i].trophyChange
+            currentTrophies -= tempTrophies
+            data.append(Double(currentTrophies))
+        }
+        
+        data.reverse()
+        
+        return data
+    }
+    
+    
     
     func setChartData() {
         
         // var currentTrophies = player.trophies
         
+        let chartData = generateChartData()
+        
         let values = (0..<getNumBattles()).map { (i) -> ChartDataEntry in
-            let val = battlelog[i].trophyChange
+            let val = chartData[i]
             return ChartDataEntry(x: Double(i), y: Double(val))
         }
         let set1 = LineChartDataSet(entries: values, label: "Trophy Change")
+        
+        // One line that changes all different parts that need a color
+        let chartColor = UIColor(hexString: "#1B375A")
+        
+        set1.setColor(NSUIColor(cgColor: chartColor!.cgColor))
+        
+        set1.drawFilledEnabled = true
+        set1.drawCirclesEnabled = false
+        set1.drawCircleHoleEnabled = false
+        set1.lineWidth = 2
+        set1.fillAlpha = 0.5
+        set1.drawValuesEnabled = false
+        let gradientColors = [chartColor!.cgColor, UIColor.clear.cgColor] as CFArray // Colors of the gradient
+        let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
+        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
+        set1.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
+        set1.mode = .cubicBezier
         let data = LineChartData(dataSet: set1)
+        data.setDrawValues(false)
         
         self.trophyGraph.data = data
     }
@@ -185,20 +240,25 @@ class PersonalStatViewController: UIViewController {
          poco
          */
         getBattleLog()
+        // print("Battlelog: \(battlelog)")
         print("Player Name: \(player.name)")
         print("Number of Battles: \(getNumBattles())")
         print("Trophy Change: \(getTrophyChange())")
         // print("Highest Trophy Brawler: \(highestTropheyBrawler())")
         
         
-        trophyGraph.drawBordersEnabled = true
-        trophyGraph.dragEnabled = true
+        trophyGraph.drawBordersEnabled = false
+        //trophyGraph.dragEnabled = true
         trophyGraph.setScaleEnabled(true)
-        trophyGraph.pinchZoomEnabled = true
-        
-        
-        
+        // trophyGraph.pinchZoomEnabled = true
+        trophyGraph.xAxis.drawGridLinesEnabled = true
+        trophyGraph.xAxis.enabled = false
+        trophyGraph.rightAxis.enabled = false
+        trophyGraph.legend.enabled = false
+        trophyGraph.minOffset = 10
         setChartData()
+            
+        trophyGraph.animate(xAxisDuration: 2)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
