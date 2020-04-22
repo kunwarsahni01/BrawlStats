@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,7 +136,7 @@ Rankings</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="gradeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="k0O-gJ-Y80">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-qk-jQp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-qk-jQp">
                                 <rect key="frame" x="40" y="267" width="295" height="70.666666666666686"/>
                                 <string key="text">How do you 
 stack-up?</string>
@@ -257,33 +257,30 @@ stack-up?</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearcHeader" translatesAutoresizingMaskIntoConstraints="NO" id="veR-8l-6WL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1125"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SearcHeader" translatesAutoresizingMaskIntoConstraints="NO" id="veR-8l-6WL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for someone?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjk-en-KY7">
-                                <rect key="frame" x="35" y="84" width="305" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="19x-bq-1Yu"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for someone?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjk-en-KY7">
+                                <rect key="frame" x="35" y="84" width="305" height="70.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Nougat-ExtraBlack" family="Nougat" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a User Tag to get in depth stats" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-El-FQ4">
-                                <rect key="frame" x="35" y="174" width="305" height="18"/>
+                                <rect key="frame" x="35" y="164.66666666666666" width="305" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-XW-5Ya">
-                                <rect key="frame" x="-15" y="352" width="405" height="128"/>
+                                <rect key="frame" x="-15" y="342.66666666666669" width="405" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="g9H-VR-kaO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXV-oc-aeY">
-                                <rect key="frame" x="35" y="202" width="305" height="60"/>
+                                <rect key="frame" x="35" y="192.66666666666666" width="305" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#ABC12345" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-22-gex">
                                         <rect key="frame" x="15" y="10" width="275" height="40"/>
@@ -300,7 +297,7 @@ stack-up?</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M01-2V-rr6">
-                                <rect key="frame" x="0.0" y="362" width="375" height="367"/>
+                                <rect key="frame" x="0.0" y="352.66666666666674" width="375" height="376.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CdA-FW-8Z5">
                                     <size key="itemSize" width="305" height="306"/>
@@ -310,7 +307,7 @@ stack-up?</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentCollectionViewCell" id="3cO-YG-lLT" customClass="RecentCollectionViewCell" customModule="BrawlStats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="33.666666666666664" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="38" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mHI-h5-R95">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -366,7 +363,7 @@ stack-up?</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv2-4w-8yS">
-                                <rect key="frame" x="35" y="272" width="305" height="60"/>
+                                <rect key="frame" x="35" y="262.66666666666669" width="305" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hbJ-bW-MbX"/>
                                 </constraints>
@@ -375,7 +372,7 @@ stack-up?</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Button-Login" translatesAutoresizingMaskIntoConstraints="NO" id="2CZ-sf-MuL">
-                                <rect key="frame" x="35" y="272" width="305" height="60"/>
+                                <rect key="frame" x="35" y="262.66666666666669" width="305" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="s4K-1Z-Ahf"/>
                                 </constraints>
@@ -431,7 +428,7 @@ stack-up?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzA-pM-wp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.399999999999999" y="-664.28571428571433"/>
+            <point key="canvasLocation" x="77.599999999999994" y="-664.28571428571433"/>
         </scene>
         <!--Personal Stat View Controller-->
         <scene sceneID="86J-G1-aF1">
@@ -897,9 +894,6 @@ stack-up?</string>
             <point key="canvasLocation" x="-863.20000000000005" y="35.467980295566505"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lCT-yH-eze"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Button-Login" width="933" height="144"/>
         <image name="Feed-Item" width="933" height="300"/>
@@ -907,15 +901,18 @@ stack-up?</string>
         <image name="SearcHeader" width="1125" height="1125"/>
         <image name="SecondFeedItems" width="1595" height="1585"/>
         <image name="Tropy-Progress" width="933" height="510"/>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="battleLog" width="592" height="1268"/>
-        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
         <image name="colt" width="810" height="939"/>
         <image name="crow" width="810" height="939"/>
         <image name="feedItems" width="933" height="444"/>
         <image name="gradeBackground" width="1125" height="2436"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="roboTime" width="592" height="592"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lCT-yH-eze"/>
+    </inferredMetricsTieBreakers>
 </document>
