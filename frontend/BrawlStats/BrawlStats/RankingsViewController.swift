@@ -18,7 +18,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedPlayer = Player()
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
-    var iconArr = ["1", "2", "3", "4", "5"]
+    var iconArr = ["8-bit-profile", "barley-profile", "bea-profile", "bibi-profile", "bo-profile", "brock-profile", "bull-profile", "carl-profile", "colt-profile", "crow-profile", "darryl-profile", "dynamike-profile", "el_primo-profile", "emz-profile", "frank-profile", "gene-profile", "jacky-profile", "jessie-profile", "leon-profile", "max-profile", "mortis-profile", "mr_p-profile", "nita-profile", "pam-profile", "penny-profile", "piper-profile", "poco-profile", "rico-profile", "rosa-profile", "sandy-profile", "shelly-profile", "spike-profile", "sprout-profile", "tara-profile", "tick-profile"]
     
     // ranking tableview
     @IBOutlet var rankingTableView: UITableView!
