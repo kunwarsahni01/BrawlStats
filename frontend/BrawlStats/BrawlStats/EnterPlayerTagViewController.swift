@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var recentSearchesCollectionView: UICollectionView!
     @IBOutlet var userTagField: UITextField!
     @IBOutlet var UserTagView: UIView!
     @IBOutlet var roundedView: UIView!
@@ -41,6 +42,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         // print("RECENT SEARCHES: \(getRecentSearchesPlayer())")
         
         // TODO: reload the recent searches data every time the view appears
+        recentSearchesCollectionView.reloadData()
     }
     
     func getRecentSearches() -> [Data] {
@@ -131,8 +133,10 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     // This function looks at the current player and returns the Brawler object of the highest trophy brawler the player has
-    func highestTropheyBrawler(player:Player) -> (Brawler) {
-        let brawlers = player.brawlers
+    func highestTropheyBrawler(tempPlayer:Player) -> (Brawler) {
+        // print(player.name)
+        
+        let brawlers = tempPlayer.brawlers
         // print(brawlers)
         
         var highestBrawler = brawlers[0]
@@ -157,8 +161,9 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         cell.userName.text = searches[indexPath.row].name
         
         let tempPlayer = searches[indexPath.row]
+        // print(tempPlayer.name)
         
-        let highestBrawler = highestTropheyBrawler(player: tempPlayer)
+        let highestBrawler = highestTropheyBrawler(tempPlayer: tempPlayer)
         print("highestBraler: \(highestBrawler.name.lowercased())")
         
         var highestBrawlerName = highestBrawler.name

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -423,6 +423,7 @@ stack-up?</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="UserTagView" destination="fXV-oc-aeY" id="Isv-ZL-Da8"/>
+                        <outlet property="recentSearchesCollectionView" destination="M01-2V-rr6" id="IEd-yk-ORs"/>
                         <outlet property="roundedView" destination="Wcj-XW-5Ya" id="iVi-Ht-fsc"/>
                         <outlet property="userTagField" destination="BSg-22-gex" id="Hgg-lq-fJj"/>
                         <segue destination="F6H-AL-4iQ" kind="show" identifier="EnterTagToPersonalStat" id="lCT-yH-eze"/>
