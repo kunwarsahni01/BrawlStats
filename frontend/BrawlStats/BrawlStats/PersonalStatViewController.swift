@@ -42,6 +42,9 @@ class PersonalStatViewController: UIViewController {
     @IBOutlet var RoboTimeTextField: UILabel!
     @IBOutlet var CharacterImageView: UIImageView!
     @IBOutlet weak var trophyGraph: LineChartView!
+    @IBOutlet weak var battleOneImage: UIImageView!
+    @IBOutlet weak var battleTwoImage: UIImageView!
+    @IBOutlet weak var battleThreeImage: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -199,6 +202,54 @@ class PersonalStatViewController: UIViewController {
         self.trophyGraph.isUserInteractionEnabled = false
     }
     
+    func setBattlelogImages() {
+        print(battlelog[0])
+        if (battlelog[0].result == "victory" || (battlelog[0].result == "rank" && battlelog[0].rank < 5)) {
+            battleOneImage.image = UIImage(systemName: "checkmark.rectangle.fill")
+            battleOneImage.image = battleOneImage.image?.withRenderingMode(.alwaysTemplate)
+            battleOneImage.tintColor = UIColor.green
+        } else if (battlelog[0].result == "draw") {
+            battleOneImage.image = UIImage(systemName: "minus.rectangle.fill")
+            battleOneImage.image = battleOneImage.image?.withRenderingMode(.alwaysTemplate)
+            battleOneImage.tintColor = UIColor.yellow
+        } else {
+            battleOneImage.image = UIImage(systemName: "xmark.rectangle.fill")
+            battleOneImage.image = battleOneImage.image?.withRenderingMode(.alwaysTemplate)
+            battleOneImage.tintColor = UIColor.red
+        }
+        
+        print(battlelog[1])
+        
+        if (battlelog[1].result == "victory" || (battlelog[1].result == "rank" && battlelog[1].rank < 5)) {
+            battleTwoImage.image = UIImage(systemName: "checkmark.rectangle.fill")
+            battleTwoImage.image = battleTwoImage.image?.withRenderingMode(.alwaysTemplate)
+            battleTwoImage.tintColor = UIColor.green
+        } else if (battlelog[1].result == "draw") {
+            battleTwoImage.image = UIImage(systemName: "minus.rectangle.fill")
+            battleTwoImage.image = battleTwoImage.image?.withRenderingMode(.alwaysTemplate)
+            battleTwoImage.tintColor = UIColor.yellow
+        } else {
+            battleTwoImage.image = UIImage(systemName: "xmark.rectangle.fill")
+            battleTwoImage.image = battleTwoImage.image?.withRenderingMode(.alwaysTemplate)
+            battleTwoImage.tintColor = UIColor.red
+        }
+        print(battlelog[2])
+        
+        if (battlelog[2].result == "victory" || (battlelog[2].result == "rank" && battlelog[2].rank < 5)) {
+            battleThreeImage.image = UIImage(systemName: "checkmark.rectangle.fill")
+            battleThreeImage.image = battleThreeImage.image?.withRenderingMode(.alwaysTemplate)
+            battleThreeImage.tintColor = UIColor.green
+        } else if (battlelog[1].result == "draw") {
+            battleThreeImage.image = UIImage(systemName: "minus.rectangle.fill")
+            battleThreeImage.image = battleThreeImage.image?.withRenderingMode(.alwaysTemplate)
+            battleThreeImage.tintColor = UIColor.yellow
+        } else {
+            battleThreeImage.image = UIImage(systemName: "xmark.rectangle.fill")
+            battleThreeImage.image = battleThreeImage.image?.withRenderingMode(.alwaysTemplate)
+            battleThreeImage.tintColor = UIColor.red
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -260,6 +311,10 @@ class PersonalStatViewController: UIViewController {
         setChartData()
             
         trophyGraph.animate(xAxisDuration: 2)
+        
+        setBattlelogImages()
+        
+
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
