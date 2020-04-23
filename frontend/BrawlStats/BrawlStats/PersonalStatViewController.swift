@@ -196,6 +196,7 @@ class PersonalStatViewController: UIViewController {
         data.setDrawValues(false)
         
         self.trophyGraph.data = data
+        self.trophyGraph.isUserInteractionEnabled = false
     }
     
     override func viewDidLoad() {

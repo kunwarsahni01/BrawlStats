@@ -12,7 +12,8 @@ class RankingsPlayerTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var tagLabel: UILabel!
     @IBOutlet var profileImage: UIImageView!
-
+    @IBOutlet weak var backImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

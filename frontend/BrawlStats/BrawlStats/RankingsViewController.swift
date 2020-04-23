@@ -94,6 +94,8 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.profileImage.image = UIImage(named: iconArr[abs(player.tag.hashValue % iconArr.count)])
         cell.profileImage.layer.cornerRadius = 20
         cell.profileImage.clipsToBounds = true
+        cell.backImage.layer.cornerRadius = 20
+        cell.backImage.clipsToBounds = true
         return cell
     }
     
