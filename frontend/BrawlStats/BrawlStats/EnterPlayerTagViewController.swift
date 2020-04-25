@@ -8,18 +8,21 @@
 
 import Foundation
 import UIKit
+import JGProgressHUD
 
 class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var recentSearchesCollectionView: UICollectionView!
     @IBOutlet var userTagField: UITextField!
     @IBOutlet var UserTagView: UIView!
     @IBOutlet var roundedView: UIView!
+    @IBOutlet weak var enterView: UIView!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var player = Player()
     let recentSearchKey = "recentSearchKey"
     let numRecentSearches = 5
-    
+    let hud = JGProgressHUD(style: .dark)
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -34,6 +37,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         UserTagView.layer.cornerRadius = 10
+        enterView.layer.cornerRadius = 10
         roundedView.layer.cornerRadius = 38
         // Do any additional setup after loading the view.
     }
@@ -200,6 +204,8 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func getData(usertag: String) {
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
         // getting json from URL
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -214,7 +220,7 @@ class EnterPlayerTagViewController: UIViewController, UICollectionViewDelegate, 
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
                 //                self.printingInfo()
-                
+                self.hud.dismiss()
                 self.segToPersonalStat()
             }
         }

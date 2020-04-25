@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
@@ -23,11 +24,14 @@ extension UIViewController {
 class EnterPersonalTagViewController: UIViewController {
     @IBOutlet var userTagField: UITextField!
     @IBOutlet var userTagView: UIView!
+    @IBOutlet weak var enterView: UIView!
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var player = Player()
     let recentSearchKey = "recentSearchKey"
     let numRecentSearches = 5
+    let hud = JGProgressHUD(style: .dark)
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,11 +46,14 @@ class EnterPersonalTagViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userTagView.layer.cornerRadius = 10
+        enterView.layer.cornerRadius = 10
         hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     
     func getData(usertag: String) {
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
         // getting json from URL
         let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -61,6 +68,7 @@ class EnterPersonalTagViewController: UIViewController {
                 // TODO: call a function that would generate the codeable and populate the personal stat page
                 self.initStruct()
                 //                self.printingInfo()
+                self.hud.dismiss()
                 self.segToPersonalStat()
             }
         }

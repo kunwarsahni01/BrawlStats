@@ -3,10 +3,11 @@
 
 target 'BrawlStats' do
   # Comment the next line if you don't want to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for BrawlStats
   pod 'Charts'
+  pod 'JGProgressHUD'
 
   target 'BrawlStatsTests' do
     inherit! :search_paths

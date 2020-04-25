@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D48A5C9AA488A4B2F7D483B /* libPods-BrawlStats-BrawlStatsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3229654B6A893B05092DC5B6 /* libPods-BrawlStats-BrawlStatsUITests.a */; };
 		1000C3C52432B07D0003EF64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3C42432B07D0003EF64 /* AppDelegate.swift */; };
 		1000C3C72432B07D0003EF64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3C62432B07D0003EF64 /* SceneDelegate.swift */; };
 		1000C3C92432B07D0003EF64 /* EnterPlayerTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000C3C82432B07D0003EF64 /* EnterPlayerTagViewController.swift */; };
@@ -19,17 +18,18 @@
 		1053DC4F24493210001546D4 /* RankingsPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */; };
 		10684448243BEE98004B721A /* PersonalStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10684447243BEE98004B721A /* PersonalStatViewController.swift */; };
 		1081AA4E24451FFC0021AC4E /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */; };
+		11AA934D1811E19E2B67301A /* Pods_BrawlStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4EEBE52790FA019568D07F /* Pods_BrawlStats.framework */; };
 		1EEB13642449017200DE5B4A /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13632449017200DE5B4A /* Battle.swift */; };
 		1EEB13662449022C00DE5B4A /* BattlePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13652449022C00DE5B4A /* BattlePlayer.swift */; };
 		1EEB13682449027E00DE5B4A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEB13672449027E00DE5B4A /* Event.swift */; };
-		3552FDD2F95FBF416269B6E4 /* libPods-BrawlStatsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32781CA224F3998E5B6C03B6 /* libPods-BrawlStatsTests.a */; };
+		3CBC705AF2282C2A452D8462 /* Pods_BrawlStats_BrawlStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630996A8F0067E720B399F1E /* Pods_BrawlStats_BrawlStatsUITests.framework */; };
+		7689005BA0C8E43ECF605496 /* Pods_BrawlStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F576BED0980A3BE86CACA93 /* Pods_BrawlStatsTests.framework */; };
 		9716A5D7244A208800771B53 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716A5D6244A208800771B53 /* HomeStatsViewController.swift */; };
 		9716A5D9244A397000771B53 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716A5D8244A397000771B53 /* RecentCollectionViewCell.swift */; };
 		97261A3F2445403E0077A2E3 /* Nougat-ExtraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97261A3E2445403E0077A2E3 /* Nougat-ExtraBlack.ttf */; };
 		977156222449EC6C00D5D25C /* EnterPersonalTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977156212449EC6C00D5D25C /* EnterPersonalTagViewController.swift */; };
 		97976F652438D53000A36A4B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F642438D53000A36A4B /* Player.swift */; };
 		97976F672438D53D00A36A4B /* Brawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97976F662438D53D00A36A4B /* Brawler.swift */; };
-		A6578BAA8DABA9D64C664BEF /* libPods-BrawlStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A4FFF9861B8F2420C21EEC /* libPods-BrawlStats.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,6 @@
 		1053DC4E24493210001546D4 /* RankingsPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		10684447243BEE98004B721A /* PersonalStatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStatViewController.swift; sourceTree = "<group>"; };
 		1081AA4D24451FFC0021AC4E /* RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
-		19A4FFF9861B8F2420C21EEC /* libPods-BrawlStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BrawlStats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D909825BA203A7B678DFF54 /* Pods-BrawlStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStats.release.xcconfig"; path = "Target Support Files/Pods-BrawlStats/Pods-BrawlStats.release.xcconfig"; sourceTree = "<group>"; };
 		1E3A51E7244E81F500D2B769 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3A51ED244E824300D2B769 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +75,8 @@
 		1EEB13672449027E00DE5B4A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		23C19570A9F89AE01994B70E /* Pods-BrawlStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStats.debug.xcconfig"; path = "Target Support Files/Pods-BrawlStats/Pods-BrawlStats.debug.xcconfig"; sourceTree = "<group>"; };
 		23EECB700651305FC319ACB7 /* Pods-BrawlStats-BrawlStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStats-BrawlStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-BrawlStats-BrawlStatsUITests/Pods-BrawlStats-BrawlStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3229654B6A893B05092DC5B6 /* libPods-BrawlStats-BrawlStatsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BrawlStats-BrawlStatsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		32781CA224F3998E5B6C03B6 /* libPods-BrawlStatsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BrawlStatsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F576BED0980A3BE86CACA93 /* Pods_BrawlStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrawlStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		630996A8F0067E720B399F1E /* Pods_BrawlStats_BrawlStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrawlStats_BrawlStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0078341B97B29B587E6B05 /* Pods-BrawlStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStatsTests.release.xcconfig"; path = "Target Support Files/Pods-BrawlStatsTests/Pods-BrawlStatsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CB79BEA9E8ED9853AB1BDBC /* Pods-BrawlStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-BrawlStatsTests/Pods-BrawlStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9716A5D6244A208800771B53 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		97976F642438D53000A36A4B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		97976F662438D53D00A36A4B /* Brawler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brawler.swift; sourceTree = "<group>"; };
 		AAE5EAFB800587650A315019 /* Pods-BrawlStats-BrawlStatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrawlStats-BrawlStatsUITests.release.xcconfig"; path = "Target Support Files/Pods-BrawlStats-BrawlStatsUITests/Pods-BrawlStats-BrawlStatsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE4EEBE52790FA019568D07F /* Pods_BrawlStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrawlStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6578BAA8DABA9D64C664BEF /* libPods-BrawlStats.a in Frameworks */,
+				11AA934D1811E19E2B67301A /* Pods_BrawlStats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3552FDD2F95FBF416269B6E4 /* libPods-BrawlStatsTests.a in Frameworks */,
+				7689005BA0C8E43ECF605496 /* Pods_BrawlStatsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D48A5C9AA488A4B2F7D483B /* libPods-BrawlStats-BrawlStatsUITests.a in Frameworks */,
+				3CBC705AF2282C2A452D8462 /* Pods_BrawlStats_BrawlStatsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,9 +188,9 @@
 			children = (
 				1E3A51ED244E824300D2B769 /* Charts.framework */,
 				1E3A51E7244E81F500D2B769 /* Charts.framework */,
-				19A4FFF9861B8F2420C21EEC /* libPods-BrawlStats.a */,
-				3229654B6A893B05092DC5B6 /* libPods-BrawlStats-BrawlStatsUITests.a */,
-				32781CA224F3998E5B6C03B6 /* libPods-BrawlStatsTests.a */,
+				BE4EEBE52790FA019568D07F /* Pods_BrawlStats.framework */,
+				630996A8F0067E720B399F1E /* Pods_BrawlStats_BrawlStatsUITests.framework */,
+				3F576BED0980A3BE86CACA93 /* Pods_BrawlStatsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,6 +227,7 @@
 				1000C3BD2432B07D0003EF64 /* Sources */,
 				1000C3BE2432B07D0003EF64 /* Frameworks */,
 				1000C3BF2432B07D0003EF64 /* Resources */,
+				C7B7CB9E84DCE85C160B51A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +265,7 @@
 				1000C3DE2432B07D0003EF64 /* Sources */,
 				1000C3DF2432B07D0003EF64 /* Frameworks */,
 				1000C3E02432B07D0003EF64 /* Resources */,
+				0A7DD2C4B10D893DFFC4C258 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +349,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A7DD2C4B10D893DFFC4C258 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrawlStats-BrawlStatsUITests/Pods-BrawlStats-BrawlStatsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrawlStats-BrawlStatsUITests/Pods-BrawlStats-BrawlStatsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BrawlStats-BrawlStatsUITests/Pods-BrawlStats-BrawlStatsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3D36E8342B2AC2A36C930C03 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,6 +430,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7B7CB9E84DCE85C160B51A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrawlStats/Pods-BrawlStats-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BrawlStats/Pods-BrawlStats-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BrawlStats/Pods-BrawlStats-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

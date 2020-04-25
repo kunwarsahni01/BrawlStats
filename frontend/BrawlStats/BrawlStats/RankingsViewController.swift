@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class RankingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // raw data a list of top 200 players, DO NOT USE
@@ -19,7 +20,8 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var personalStat = [String: Any]()
     var brawlers = [[String: Any]]()
     var iconArr = ["8-bit-profile", "barley-profile", "bea-profile", "bibi-profile", "bo-profile", "brock-profile", "bull-profile", "carl-profile", "colt-profile", "crow-profile", "darryl-profile", "dynamike-profile", "el_primo-profile", "emz-profile", "frank-profile", "gene-profile", "jacky-profile", "jessie-profile", "leon-profile", "max-profile", "mortis-profile", "mr_p-profile", "nita-profile", "pam-profile", "penny-profile", "piper-profile", "poco-profile", "rico-profile", "rosa-profile", "sandy-profile", "shelly-profile", "spike-profile", "sprout-profile", "tara-profile", "tick-profile"]
-    
+    let hud = JGProgressHUD(style: .dark)
+
     // ranking tableview
     @IBOutlet var rankingTableView: UITableView!
     
@@ -32,7 +34,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
         rankingTableView.delegate = self
         rankingTableView.separatorStyle = .none
         getData()
+        
     }
     
     func getData() {
@@ -102,6 +105,8 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTag = playerArr[indexPath.row].tag.dropFirst()
         getData(usertag: String(selectedTag))
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
     }
     
     // MARK: - Navigation
@@ -137,6 +142,7 @@ class RankingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func segToStat() {
         print(selectedPlayer)
+        hud.dismiss()
         performSegue(withIdentifier: "tableToStat", sender: self)
     }
     
