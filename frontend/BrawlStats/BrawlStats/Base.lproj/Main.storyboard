@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Evz-0P-wnU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,10 +151,10 @@ stack-up?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3H1-sJ-lJ7">
-                                <rect key="frame" x="40" y="390.66666666666669" width="295" height="37"/>
+                                <rect key="frame" x="40" y="390.66666666666669" width="295" height="38.666666666666686"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#ABC12345" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jb3-fI-Rrv">
-                                        <rect key="frame" x="10" y="10" width="275" height="17"/>
+                                        <rect key="frame" x="10" y="10.000000000000002" width="275" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go"/>
                                     </textField>
@@ -174,22 +174,22 @@ stack-up?</string>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWf-uf-qnz">
-                                <rect key="frame" x="40" y="442.66666666666669" width="295" height="37"/>
+                                <rect key="frame" x="40" y="444.33333333333331" width="295" height="38.666666666666686"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBB-hx-wq8">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="37"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="38.666666666666664"/>
                                         <connections>
                                             <action selector="enterTapped:" destination="KR1-PD-3Gj" eventType="touchUpInside" id="hye-G0-GtI"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW2-Qq-6sd">
-                                        <rect key="frame" x="15" y="8" width="43" height="21"/>
+                                        <rect key="frame" x="15" y="9" width="43" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ohG-JQ-dGQ">
-                                        <rect key="frame" x="259" y="10.999999999999998" width="21" height="15.333333333333329"/>
+                                        <rect key="frame" x="259" y="11.999999999999998" width="21" height="15.333333333333329"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ohG-JQ-dGQ" secondAttribute="height" multiplier="1:1" id="BrK-p3-EtF"/>
@@ -273,17 +273,17 @@ stack-up?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-XW-5Ya">
-                                <rect key="frame" x="-15" y="331.66666666666669" width="405" height="128"/>
+                                <rect key="frame" x="0.0" y="335" width="375" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="g9H-VR-kaO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXV-oc-aeY">
-                                <rect key="frame" x="35" y="197.66666666666666" width="305" height="47"/>
+                                <rect key="frame" x="35" y="197.66666666666666" width="305" height="48.666666666666657"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="#ABC12345" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-22-gex">
-                                        <rect key="frame" x="10" y="15" width="285" height="17"/>
+                                        <rect key="frame" x="10" y="15.000000000000002" width="285" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="search"/>
                                     </textField>
@@ -297,8 +297,8 @@ stack-up?</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M01-2V-rr6">
-                                <rect key="frame" x="0.0" y="346.66666666666674" width="375" height="382.33333333333326"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="350" width="375" height="379"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CdA-FW-8Z5">
                                     <size key="itemSize" width="305" height="306"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -307,7 +307,7 @@ stack-up?</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentCollectionViewCell" id="3cO-YG-lLT" customClass="RecentCollectionViewCell" customModule="BrawlStats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="41" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="39.666666666666664" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mHI-h5-R95">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -363,22 +363,22 @@ stack-up?</string>
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDA-YN-v1t">
-                                <rect key="frame" x="35" y="254.66666666666663" width="305" height="47"/>
+                                <rect key="frame" x="35" y="256.33333333333331" width="305" height="48.666666666666686"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv2-4w-8yS">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="48.666666666666664"/>
                                         <connections>
                                             <action selector="enterTapped:" destination="PcL-TI-SLI" eventType="touchUpInside" id="coH-Ix-Nr4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6u-0j-EOn">
-                                        <rect key="frame" x="15" y="13.000000000000028" width="43" height="21"/>
+                                        <rect key="frame" x="15" y="14" width="43" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GQr-td-IX9">
-                                        <rect key="frame" x="269.66666666666669" y="16.333333333333343" width="20.333333333333314" height="14.666666666666664"/>
+                                        <rect key="frame" x="269.66666666666669" y="17.333333333333371" width="20.333333333333314" height="14.666666666666664"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GQr-td-IX9" secondAttribute="height" multiplier="1:1" id="Pv0-fs-qoq"/>
@@ -412,10 +412,10 @@ stack-up?</string>
                             <constraint firstItem="M01-2V-rr6" firstAttribute="top" secondItem="Wcj-XW-5Ya" secondAttribute="top" constant="15" id="Ugf-fj-p6S"/>
                             <constraint firstItem="GDA-YN-v1t" firstAttribute="trailing" secondItem="Pjk-en-KY7" secondAttribute="trailing" id="YLn-rl-w6o"/>
                             <constraint firstItem="nkH-El-FQ4" firstAttribute="trailing" secondItem="Pjk-en-KY7" secondAttribute="trailing" id="ZBv-ej-Jjt"/>
-                            <constraint firstItem="Wcj-XW-5Ya" firstAttribute="leading" secondItem="QJH-h9-bFX" secondAttribute="leading" constant="-15" id="ZYL-qL-shs"/>
+                            <constraint firstItem="Wcj-XW-5Ya" firstAttribute="leading" secondItem="QJH-h9-bFX" secondAttribute="leading" id="ZYL-qL-shs"/>
                             <constraint firstItem="GDA-YN-v1t" firstAttribute="height" secondItem="fXV-oc-aeY" secondAttribute="height" id="fEo-v9-GE5"/>
                             <constraint firstItem="Pjk-en-KY7" firstAttribute="top" secondItem="QJH-h9-bFX" secondAttribute="top" constant="40" id="fY3-Wx-2sc"/>
-                            <constraint firstItem="Wcj-XW-5Ya" firstAttribute="trailing" secondItem="QJH-h9-bFX" secondAttribute="trailing" constant="15" id="jCY-Zn-Q1j"/>
+                            <constraint firstItem="Wcj-XW-5Ya" firstAttribute="trailing" secondItem="QJH-h9-bFX" secondAttribute="trailing" id="jCY-Zn-Q1j"/>
                             <constraint firstItem="QJH-h9-bFX" firstAttribute="bottom" secondItem="M01-2V-rr6" secondAttribute="bottom" id="kqd-Ec-dUm"/>
                             <constraint firstItem="fXV-oc-aeY" firstAttribute="leading" secondItem="Pjk-en-KY7" secondAttribute="leading" id="ma6-bt-qhJ"/>
                             <constraint firstItem="veR-8l-6WL" firstAttribute="leading" secondItem="QJH-h9-bFX" secondAttribute="leading" id="q7x-5E-XLj"/>
@@ -1016,28 +1016,28 @@ stack-up?</string>
             <point key="canvasLocation" x="-863.20000000000005" y="35.467980295566505"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lCT-yH-eze"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Feed-Item" width="2064" height="600"/>
         <image name="Group 18" width="573" height="339"/>
         <image name="SearcHeader" width="1125" height="1125"/>
         <image name="SecondFeedItems" width="1595" height="1585"/>
         <image name="Trophy-Background" width="933" height="540"/>
-        <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="arrow.right" catalog="system" width="64" height="48"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="battleLog" width="592" height="1268"/>
-        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
-        <image name="checkmark.rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="checkmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="colt" width="810" height="939"/>
         <image name="crow" width="810" height="939"/>
         <image name="feedItems" width="933" height="444"/>
-        <image name="house.fill" catalog="system" width="64" height="52"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="minus.rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="minus.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="roboTime" width="592" height="592"/>
         <image name="square-back" width="5400" height="5400"/>
-        <image name="xmark.rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="xmark.rectangle.fill" catalog="system" width="128" height="93"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="lCT-yH-eze"/>
-    </inferredMetricsTieBreakers>
 </document>
