@@ -100,10 +100,25 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 The image on the right is the final update for functionality on the Search Page. Styling will be coming in Sprint 3.
 
 ### Sprint 3 App Demo
-<img width="230" alt="Screen Shot 2020-04-01 at 6 19 47 PM" src="http://g.recordit.co/UcSH9iwJyO.gif">
+<img width="230" alt="Sprint 3 Gif" src="http://g.recordit.co/UcSH9iwJyO.gif">
 
 With Sprint 3, we completed a lot of the UI for the App. Additionally, the recent searches area is now fully functional. We also implemented a system to dynamically change the brawler image we show based on the highest trophy brawler of the player.
 
+### Sprint 4 App Demo
+<img width="230" alt="Sprint 4 Gif" src="https://media.giphy.com/media/LrEt1cIIgBEyzIy1Pd/giphy.gif">
+
+With sprint 4, we finished all of our required User Stories and even added in strong Auto Layout support. Our App now has a built in Trophy Graph that maps out trophy gains and losses over the past 25 games. Additionally, we now show a brief battlelog to give the player a sense of how they are doing over their previous games. 
+
+[High Resolution Final Demo](https://youtu.be/R7m99P3O8qg)
+
+### Demos on Other Devices
+#### iPad
+<img width="230" alt="StatStars running on iPad" src="https://i.imgur.com/LpQ7prr.png">
+<img width="230" alt="StatStars running on iPad" src="https://i.imgur.com/VUhrSYm.png">
+
+#### iPhone 8
+<img width="230" alt="StatStars running on iPhone 8" src="https://i.imgur.com/at5QlnB.png">
+<img width="230" alt="StatStars running on iPhone 8" src="https://i.imgur.com/bC51kEl.png">
 
 ## Schema
 
