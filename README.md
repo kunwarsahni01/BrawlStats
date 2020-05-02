@@ -79,15 +79,10 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 
 ![App Icon](https://user-images.githubusercontent.com/22580992/79077859-4b81de00-7cd2-11ea-8527-3d5eb25e7b97.png)
 
-### Character Models Themed
-
-![spike](https://user-images.githubusercontent.com/22580992/79077868-5e94ae00-7cd2-11ea-9f68-ef727c2fd911.png)
-
 ## Development Screenshots
 
 ### Profile Page with Design
-
-![Shift-Chummy-iOS-iPhone-X-Profile](https://user-images.githubusercontent.com/22580992/79077885-7bc97c80-7cd2-11ea-997d-d24b3c5e41ba.jpg)
+![dark](https://user-images.githubusercontent.com/22580992/80891265-edbd3200-8c90-11ea-86ec-d68a581c94de.png)
 
 ### No Design Search Page (and search page with recent searches)
 
