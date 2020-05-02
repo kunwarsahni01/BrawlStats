@@ -75,10 +75,6 @@ A simple app that tracks the statistics of a user who plays the BrawlStar Game
 
 ![Logo](https://user-images.githubusercontent.com/22580992/79077922-c0edae80-7cd2-11ea-9701-ffd1bd85e6f2.png)
 
-### App Icon
-
-![App Icon](https://user-images.githubusercontent.com/22580992/79077859-4b81de00-7cd2-11ea-8527-3d5eb25e7b97.png)
-
 ## Development Screenshots
 
 ### Profile Page with Design
