@@ -102,7 +102,7 @@ class PersonalStatViewController: UIViewController {
         // Since usertags start with a #, we remove the first character
         usertag.remove(at: usertag.startIndex)
         print(usertag)
-        let url = URL(string: "http://104.198.180.127:3000/players/\(usertag)/battlelog")!
+        let url = URL(string: "https://104.198.180.127:3000/players/\(usertag)/battlelog")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { data, _, error in
